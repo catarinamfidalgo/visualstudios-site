@@ -16,15 +16,16 @@
     <div class="container">
       <a class="brand" href="index.html">
         <img src="https://carbon-media.accelerator.net/0000000mHpW/ixCfA0lP8sFbzon2UFlsua;198x200.png?auto=webp" alt="">
-        Visual Studios
+        <span class="brand-text">Visual Studios</span>
       </a>
-      <nav class="nav">
+      <nav class="nav" id="site-nav">
         <a href="index.html">Home</a>
         <a href="portfolio.html">Portfolio</a>
         <a href="about.html">About</a>
         <a class="active" href="contact.html">Contact</a>
-        <a class="btn btn-primary" href="https://calendly.com/visualstudios/30min" target="_blank" rel="noopener">Book a free call</a>
       </nav>
+      <a class="btn btn-primary header-cta" href="https://calendly.com/visualstudios/30min" target="_blank" rel="noopener"><span class="cta-full">Book a free call</span><span class="cta-short">Book a call</span></a>
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
     </div>
   </header>
 
@@ -100,14 +101,13 @@
     <div class="container">
       <div class="copy">© Visual Studios <span id="yr">2024</span></div>
       <div class="socials">
-        <a href="https://twitter.com/atvisualstudios" target="_blank" rel="noopener">Twitter / X</a>
-        <a href="https://www.youtube.com/@visualstudios1027" target="_blank" rel="noopener">YouTube</a>
         <a href="mailto:hello@visualstudios.pro">Email</a>
       </div>
     </div>
   </footer>
 
   <script>var y=document.getElementById('yr');if(y)y.textContent=new Date().getFullYear();</script>
+  <script src="assets/nav.js"></script>
   <script src="assets/contact.js"></script>
 </body>
 </html>
