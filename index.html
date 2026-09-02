@@ -22,8 +22,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg:#faf9fc; --text:#591c30; --muted:#855468; --accent:#7259c4; --onaccent:#ffffff;
-    --lav:#ece6fa; --lav-bright:#a98bef; --ink:#1b1a1f; --line:rgba(89,28,48,.18); --radius:2px;
+    --bg:#faf9fc; --text:#1b1a1f; --muted:#6b6976; --accent:#7259c4; --onaccent:#ffffff;
+    --lav:#ece6fa; --lav-bright:#a98bef; --ink:#1b1a1f; --line:rgba(27,26,31,.16); --radius:2px;
   }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
@@ -72,7 +72,7 @@
   @media (max-width: 720px) { .scroll-cue { display: none; } .hero-reed-inner { padding: 0 24px 12vh; } }
 
   .about-wrap { display: flex; gap: 44px; align-items: center; flex-wrap: wrap; }
-  .about-photo { flex: 0 0 210px; width: 210px; height: 210px; border-radius: 50%; overflow: hidden; box-shadow: 0 14px 34px rgba(89,28,48,.16); }
+  .about-photo { flex: 0 0 210px; width: 210px; height: 210px; border-radius: 50%; overflow: hidden; box-shadow: 0 14px 34px rgba(27,26,31,.14); }
   .about-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
   .about-text { flex: 1; min-width: 260px; }
 
@@ -116,7 +116,7 @@
   @media (max-width: 720px) { .service-list { grid-template-columns: 1fr; gap: 36px; } }
 
   .reel-section { padding: 20px 0 60px; }
-  .reel-player { position: relative; border-radius: 2px; overflow: hidden; aspect-ratio: 16/8; background: #000; box-shadow: 0 20px 50px rgba(89,28,48,.22); }
+  .reel-player { position: relative; border-radius: 2px; overflow: hidden; aspect-ratio: 16/8; background: #000; box-shadow: 0 20px 50px rgba(27,26,31,.20); }
   .reel-player video { width: 100%; height: 100%; object-fit: cover; }
   .reel-player--empty { display: flex; align-items: center; justify-content: center; aspect-ratio: 16/8; background: linear-gradient(135deg, rgba(114,89,196,.18), rgba(114,89,196,.05)); box-shadow: none; }
   .reel-player--empty span { font-family: 'Hanken Grotesk', sans-serif; font-size: .8rem; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); opacity: .8; }
