@@ -1,105 +1,604 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Visual Studios — Video editing &amp; production</title>
-  <meta name="description" content="Visual Studios is a video editing and production studio helping brands turn raw footage into reels that move people.">
-  <link rel="icon" href="https://carbon-media.accelerator.net/0000000mHpW/ixCfA0lP8sFbzon2UFlsua;99x100.png?auto=webp">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Catarina Fidalgo — Video Editor &amp; Post-Production</title>
+<meta name="description" content="Catarina Fidalgo is a video editor and post-production specialist with a decade of craft behind the cuts — for brands, agencies, and creators.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+<!-- Social share preview (Open Graph + Twitter). Set the absolute URL/image once the final domain is live. -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Catarina Fidalgo — Video Editor & Post-Production">
+<meta property="og:description" content="A video editor and post-production specialist creating story-driven video for brands, agencies, and creative teams worldwide.">
+<meta property="og:image" content="assets/img/catarina-portrait.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Catarina Fidalgo — Video Editor & Post-Production">
+<meta name="twitter:description" content="A video editor and post-production specialist creating story-driven video for brands, agencies, and creative teams worldwide.">
+<meta name="twitter:image" content="assets/img/catarina-portrait.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#faf9fc; --text:#591c30; --muted:#855468; --accent:#7259c4; --onaccent:#ffffff;
+    --lav:#ece6fa; --lav-bright:#a98bef; --ink:#1b1a1f; --line:rgba(89,28,48,.18); --radius:2px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  section[id], div[id] { scroll-margin-top: 24px; }
+  body { margin: 0; font-family: 'Hanken Grotesk', sans-serif; background: var(--bg); color: var(--text); }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  .container { max-width: 1000px; margin: 0 auto; padding: 0 28px; }
+
+  header.site { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; padding: 30px 0 24px; }
+  .brand { font-weight: 800; font-size: 1.25rem; letter-spacing: .01em; text-transform: uppercase; font-family: 'Hanken Grotesk', sans-serif; }
+  .brand i { font-style: normal; color: var(--accent); }
+  nav.main { display: flex; flex-direction: column; align-items: flex-end; gap: 7px; font-size: .74rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+  .header-cta { display: none; }
+  nav.main a { transition: color .15s ease; color: var(--muted); }
+  nav.main a:hover, nav.main a.active { color: var(--accent); }
+  .btn { display: inline-block; padding: .95em 1.7em; border-radius: 999px; font-weight: 700; font-size: .76rem; text-transform: uppercase; letter-spacing: .1em; background: var(--accent); color: var(--onaccent); border: 1px solid var(--accent); transition: background .15s ease, color .15s ease; }
+  .btn:hover { background: var(--text); border-color: var(--text); }
+  .btn--ghost { background: transparent; color: var(--accent); }
+  .btn--ghost:hover { background: transparent; color: var(--text); }
+  .btn-row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+  .nav-toggle { display: none; margin-left: auto; flex-direction: column; justify-content: center; gap: 5px; width: 40px; height: 40px; background: none; border: none; cursor: pointer; padding: 8px; }
+  .nav-toggle span { display: block; height: 2px; width: 100%; background: var(--text); border-radius: 2px; transition: transform .2s ease, opacity .2s ease; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .section { padding: 96px 0; }
+  .eyebrow { font-family: 'Hanken Grotesk', sans-serif; font-size: .72rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+  h1 { font-family: 'Hanken Grotesk', sans-serif; font-style: normal; font-weight: 800; text-transform: uppercase; line-height: .98; margin: 0 0 18px; font-size: clamp(2.4rem,5.5vw,4rem); letter-spacing: -.02em; }
+  h1 i { color: var(--accent); font-style: normal; }
+  p.copy { color: var(--muted); font-size: 1rem; line-height: 1.65; max-width: 480px; margin: 0 0 20px; }
+  .center { text-align: center; }
+  .center p.copy { margin-left: auto; margin-right: auto; }
+
+  .hero-reed { position: relative; background: var(--ink); color: #fff; min-height: 86vh; display: flex; align-items: flex-end; overflow: hidden; }
+  .hero-reed-media { position: absolute; inset: 0; background: radial-gradient(120% 90% at 72% 18%, rgba(169,139,239,.20), rgba(27,26,31,0) 55%), linear-gradient(180deg, #26232e 0%, #131217 100%); }
+  .hero-reed-inner { position: relative; z-index: 2; width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 40px 9vh; }
+  .hero-title { font-size: clamp(3rem,9.5vw,7.4rem); font-weight: 900; line-height: .9; letter-spacing: -.025em; text-transform: uppercase; margin: 0 0 30px; color: #fff; }
+  .hero-title span { color: var(--lav-bright); }
+  .hero-reed .btn-row { justify-content: flex-start; }
+  .btn--ghost-light { background: transparent; color: #fff; border-color: rgba(255,255,255,.55); }
+  .btn--ghost-light:hover { background: #fff; color: var(--ink); border-color: #fff; }
+  .scroll-cue { position: absolute; right: 38px; bottom: 9vh; z-index: 3; writing-mode: vertical-rl; text-orientation: mixed; text-transform: uppercase; letter-spacing: .28em; font-size: .66rem; font-weight: 700; color: rgba(255,255,255,.7); display: inline-flex; align-items: center; gap: 16px; }
+  .scroll-cue::after { content: ''; width: 1px; height: 66px; background: rgba(255,255,255,.55); }
+  @media (max-width: 720px) { .scroll-cue { display: none; } .hero-reed-inner { padding: 0 24px 12vh; } }
+
+  .about-wrap { display: flex; gap: 44px; align-items: center; flex-wrap: wrap; }
+  .about-photo { flex: 0 0 210px; width: 210px; height: 210px; border-radius: 50%; overflow: hidden; box-shadow: 0 14px 34px rgba(89,28,48,.16); }
+  .about-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
+  .about-text { flex: 1; min-width: 260px; }
+
+  .reel-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin-top: 24px; }
+  .reel-card { aspect-ratio: 1; border-radius: 2px; overflow: hidden; background: var(--line); }
+  .reel-card img { width: 100%; height: 100%; object-fit: cover; }
+
+  .portfolio-band { background: var(--accent); padding: 6px; margin-top: 8px; }
+  .project-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 6px; margin: 0; }
+  @media (max-width: 820px) { .project-grid { grid-template-columns: repeat(2,1fr); } }
+  @media (max-width: 540px) { .project-grid { grid-template-columns: 1fr; } }
+  .project-card { position: relative; aspect-ratio: 4/3; overflow: hidden; cursor: pointer; background: #201e26; }
+  .project-card .thumb { position: absolute; inset: 0; margin: 0; }
+  .project-card .thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+  .project-card:hover .thumb img { transform: scale(1.05); }
+  .project-card .thumb--empty { background: linear-gradient(150deg, #2b2833, #17151d); }
+  .project-card .overlay { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start; padding: 22px; background: linear-gradient(to top, rgba(14,12,19,.85) 0%, rgba(14,12,19,.12) 55%, rgba(14,12,19,0) 100%); }
+  .project-card .cat { align-self: flex-start; background: var(--accent); color: #fff; font-size: .56rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; padding: .5em .75em; margin-bottom: 10px; }
+  .project-card .title { color: #fff; font-weight: 800; font-size: 1.32rem; letter-spacing: -.01em; line-height: 1.05; margin: 0; }
+  .project-card .view { margin-top: 12px; color: #fff; font-size: .62rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; opacity: 0; transform: translateY(6px); transition: opacity .2s ease, transform .2s ease; }
+  .project-card:hover .view { opacity: .9; transform: translateY(0); }
+  .thumb-badge { position: absolute; top: 12px; right: 12px; z-index: 4; display: inline-flex; align-items: center; gap: .5em; font-family: 'Hanken Grotesk', sans-serif; font-size: .64rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; background: var(--accent); color: #fff; padding: .55em .8em; border-radius: 3px; box-shadow: 0 3px 12px rgba(14,12,19,.5); }
+  .thumb-badge .tb-icon { font-size: 1.05em; line-height: 1; margin-top: -1px; }
+  /* Stacked-card affordance so multi-video projects read as a set at a glance.
+     Box-shadow slivers sit in the grid gap (not clipped by the card's overflow). */
+  .project-card--multi { box-shadow: 0 -3px 0 rgba(169,139,239,.6), 0 -6px 0 rgba(169,139,239,.3); }
+  .portfolio-count { font-family: 'Hanken Grotesk', sans-serif; font-size: .72rem; color: var(--muted); margin-top: -8px; margin-bottom: 4px; }
+
+  .contact-block { text-align: center; padding: 60px 0 70px; }
+  .agency-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:44px; }
+  .agency-card { border:1px solid var(--line);border-radius:2px;padding:26px 22px;background:transparent; }
+  .agency-card .t { font-weight:700;margin-bottom:6px; }
+  .agency-card .d { font-size:.88rem;color:var(--muted); }
+
+  .services { padding: 90px 0; }
+  .service-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 44px 40px; margin-top: 48px; counter-reset: svc; }
+  .service-item { counter-increment: svc; }
+  .service-item::before { content: counter(svc, decimal-leading-zero); display: block; font-size: .78rem; font-weight: 700; letter-spacing: .1em; color: var(--accent); margin-bottom: 14px; }
+  .service-item h3 { font-size: 1.3rem; font-weight: 700; letter-spacing: -.01em; margin: 0 0 10px; color: var(--text); }
+  .service-item p { margin: 0; font-size: .95rem; line-height: 1.6; color: var(--muted); }
+  @media (max-width: 720px) { .service-list { grid-template-columns: 1fr; gap: 36px; } }
+
+  .reel-section { padding: 20px 0 60px; }
+  .reel-player { position: relative; border-radius: 2px; overflow: hidden; aspect-ratio: 16/8; background: #000; box-shadow: 0 20px 50px rgba(89,28,48,.22); }
+  .reel-player video { width: 100%; height: 100%; object-fit: cover; }
+  .reel-player--empty { display: flex; align-items: center; justify-content: center; aspect-ratio: 16/8; background: linear-gradient(135deg, rgba(114,89,196,.18), rgba(114,89,196,.05)); box-shadow: none; }
+  .reel-player--empty span { font-family: 'Hanken Grotesk', sans-serif; font-size: .8rem; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); opacity: .8; }
+  .reel-caption { display: flex; justify-content: space-between; align-items: center; margin-top: 14px; }
+  .reel-caption .rc-title { font-family: 'Hanken Grotesk', sans-serif; font-style: normal; font-weight: 600; font-size: 1.15rem; }
+  .reel-caption .rc-note { font-size: .82rem; color: var(--muted); }
+
+  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(20,12,14,.86); z-index: 100; align-items: center; justify-content: center; padding: 30px; }
+  .modal-overlay.open { display: flex; }
+  .modal-box { background: var(--bg); border-radius: 2px; max-width: 780px; width: 100%; max-height: 92vh; overflow: auto; position: relative; }
+  .modal-media { position: relative; aspect-ratio: 16/10; background: #000; }
+  .modal-media video { width: 100%; height: 100%; object-fit: contain; background: #000; }
+  .modal-media-empty { display: none; position: absolute; inset: 0; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(114,89,196,.22), rgba(114,89,196,.06)); }
+  .modal-media-empty span { font-family: 'Hanken Grotesk', sans-serif; font-size: .7rem; letter-spacing: .22em; text-transform: uppercase; color: var(--accent); opacity: .9; }
+  .modal-thumbs { display: none; flex-wrap: wrap; gap: 12px; padding: 16px 28px 0; }
+  .modal-thumb { display: flex; flex-direction: column; gap: 5px; width: 100px; background: none; border: none; padding: 0; cursor: pointer; }
+  .modal-thumb .mt-img { width: 100px; height: 60px; object-fit: cover; border-radius: 6px; border: 2px solid transparent; display: block; background: linear-gradient(135deg, rgba(114,89,196,.14), rgba(114,89,196,.03)); }
+  .modal-thumb.active .mt-img { border-color: var(--accent); }
+  .modal-thumb .mt-cap { font-size: .68rem; color: var(--muted); line-height: 1.3; text-align: left; }
+  .modal-thumb.active .mt-cap { color: var(--accent); }
+  .modal-media-caption { font-family: 'Hanken Grotesk', sans-serif; font-size: .64rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin: -2px 0 10px; }
+  .modal-info { padding: 24px 28px 28px; }
+  .modal-cat { font-family: 'Hanken Grotesk', sans-serif; font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+  .modal-title { font-family: 'Hanken Grotesk', sans-serif; font-style: normal; font-weight: 600; font-size: 1.6rem; margin-bottom: 8px; }
+  .modal-desc { color: var(--muted); font-size: .95rem; line-height: 1.6; }
+  .modal-meta { display: flex; gap: 8px; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line); font-size: .86rem; line-height: 1.5; }
+  .modal-meta:first-of-type { border-top: 1px solid var(--line); }
+  .modal-meta-label { flex: 0 0 auto; font-family: 'Hanken Grotesk', sans-serif; font-size: .64rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); padding-top: 2px; min-width: 68px; }
+  .modal-meta span:last-child { color: var(--text); }
+  .modal-close { position: absolute; top: 14px; right: 16px; width: 34px; height: 34px; border-radius: 50%; background: rgba(0,0,0,.5); color: #fff; border: none; font-size: 18px; cursor: pointer; z-index: 3; }
+  .modal-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 42px; height: 42px; border-radius: 50%; background: rgba(0,0,0,.5); color: #fff; border: none; font-size: 20px; cursor: pointer; z-index: 3; }
+  .modal-prev { left: 12px; } .modal-next { right: 12px; }
+  .modal-nav:hover, .modal-close:hover { background: var(--accent); }
+  .modal-counter { position: absolute; bottom: 14px; left: 18px; font-family: 'Hanken Grotesk', sans-serif; font-size: .7rem; color: rgba(255,255,255,.75); z-index: 3; }
+
+  .contact-form { max-width: 480px; display: flex; flex-direction: column; gap: 16px; margin-top: 28px; }
+  .contact-form .field { display: flex; flex-direction: column; gap: 6px; text-align: left; }
+  .contact-form label { font-size: .82rem; font-weight: 600; color: var(--text); }
+  .contact-form .req { color: var(--accent); }
+  .contact-form input, .contact-form select, .contact-form textarea {
+    font-family: 'Hanken Grotesk', sans-serif; font-size: .95rem; padding: .7em .9em;
+    border: 1px solid var(--line); border-radius: 2px; background: #fff; color: var(--text);
+  }
+  .contact-form textarea { min-height: 110px; resize: vertical; }
+  .contact-form button.btn { border: none; cursor: pointer; align-self: flex-start; }
+  .contact-form .form-note { font-size: .78rem; color: var(--muted); margin: 0; }
+
+  footer.site { background: radial-gradient(120% 130% at 78% 15%, rgba(169,139,239,.20), rgba(27,26,31,0) 55%), linear-gradient(180deg, #26232e 0%, #131217 100%); color: #fff; padding: 72px 0 58px; margin-top: 90px; }
+  footer.site .container { display: flex; justify-content: space-between; align-items: flex-start; gap: 30px; flex-wrap: wrap; font-size: .85rem; color: #fff; }
+  .foot-logo { font-size: 1.6rem; font-weight: 800; text-transform: uppercase; letter-spacing: .01em; }
+  .foot-logo i { font-style: normal; color: var(--lav-bright); }
+  .foot-tag { text-transform: uppercase; letter-spacing: .18em; font-size: .72rem; margin-top: 10px; color: rgba(255,255,255,.85); }
+  footer.site .copy { color: rgba(255,255,255,.65); margin-top: 22px; font-size: .76rem; }
+  .foot-cta { display: flex; flex-direction: column; align-items: flex-end; gap: 16px; }
+  footer.site .socials { font-size: .8rem; letter-spacing: .04em; }
+  footer.site a { color: #fff; }
+  footer.site a:hover { color: var(--lav-bright); }
+
+  @media (max-width: 720px) {
+    header.site { flex-wrap: wrap; }
+    .nav-toggle { display: flex; }
+    .header-cta { display: none; }
+    nav.main { order: 3; flex-basis: 100%; flex-direction: column; gap: 4px; margin: 0; max-height: 0; overflow: hidden; transition: max-height .25s ease; }
+    nav.main.open { max-height: 320px; margin-top: 14px; }
+    nav.main a { padding: 10px 2px; border-bottom: 1px solid var(--line); font-size: .95rem; }
+  }
+
+  .filter-bar { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 4px; }
+  .filter-chip { font-family: 'Hanken Grotesk', sans-serif; font-size: .66rem; letter-spacing: .08em; text-transform: uppercase; padding: .5em .9em; border-radius: 2px; border: 1px solid var(--line); background: transparent; color: var(--muted); cursor: pointer; transition: all .15s ease; }
+  .filter-chip:hover { border-color: var(--accent); color: var(--accent); }
+  .filter-chip.active { background: var(--accent); border-color: var(--accent); color: var(--onaccent); }
+  .thumb--empty { display: flex; align-items: center; justify-content: center; text-align: center; padding: 10px; background: linear-gradient(135deg, rgba(114,89,196,.10), rgba(114,89,196,.02)); }
+  .thumb--empty span { font-family: 'Hanken Grotesk', sans-serif; font-size: .62rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); opacity: .8; line-height: 1.5; }
+  .modal-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .modal-tag { font-family: 'Hanken Grotesk', sans-serif; font-size: .62rem; letter-spacing: .06em; text-transform: uppercase; padding: .35em .7em; border-radius: 2px; border: 1px solid var(--line); color: var(--muted); cursor: pointer; transition: all .15s ease; }
+  .modal-tag:hover { border-color: var(--accent); color: var(--accent); }
+</style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <a class="brand" href="index.html">
-        <img src="https://carbon-media.accelerator.net/0000000mHpW/ixCfA0lP8sFbzon2UFlsua;198x200.png?auto=webp" alt="">
-        <span class="brand-text">Visual Studios</span>
-      </a>
-      <nav class="nav" id="site-nav">
-        <a class="active" href="index.html">Home</a>
-        <a href="portfolio.html">Portfolio</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
+
+  <div class="container">
+    <header class="site">
+      <div class="brand">Catarina <i>Fidalgo</i></div>
+      <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="siteNav" onclick="toggleNav(this)"><span></span><span></span><span></span></button>
+      <nav class="main" id="siteNav">
+        <a href="#home" class="active">Home</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#about">About</a>
+        <a href="#for-agencies">For Agencies</a>
+        <a href="#contact">Contact</a>
       </nav>
-      <a class="btn btn-primary header-cta" href="https://calendly.com/visualstudios/30min" target="_blank" rel="noopener"><span class="cta-full">Book a free call</span><span class="cta-short">Book a call</span></a>
-      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
+      <a class="btn header-cta" href="#contact">Get in touch</a>
+    </header>
+  </div>
+  <section class="hero-reed" id="home">
+    <div class="hero-reed-media" aria-hidden="true"></div>
+    <div class="hero-reed-inner">
+      <h1 class="hero-title">Video that<br><span>moves people</span></h1>
+      <div class="btn-row">
+        <a class="btn" href="#contact">Start a project</a>
+        <a class="btn btn--ghost-light" href="#portfolio">See my work</a>
+      </div>
     </div>
-  </header>
-
-  <main>
-    <!-- Hero with autoplay background video -->
-    <section class="hero">
-      <video class="hero__bg" loop muted playsinline preload="none"
-             poster="assets/img/poster/cuwu6RiYW9ebXtCO3goGz6.jpg"
-             data-src="https://carbon-media.accelerator.net/0000000mHpW/cuwu6RiYW9ebXtCO3goGz6;video.mp4"></video>
-      <div class="hero__inner">
-        <img class="hero__logo" src="https://carbon-media.accelerator.net/0000000mHpW/ixCfA0lP8sFbzon2UFlsua;198x200.png?auto=webp" alt="Visual Studios">
-        <h1>Visual Studios</h1>
-        <p class="lede">We help brands turn their raw footage into reels that move people — video editing &amp; production, done right.</p>
-        <div class="hero__cta">
-          <a class="btn btn-primary" href="https://calendly.com/visualstudios/30min" target="_blank" rel="noopener">Book a free call</a>
-          <a class="btn btn-ghost" href="portfolio.html">See our work</a>
-        </div>
+    <a class="scroll-cue" href="#portfolio" aria-label="Scroll to work">Scroll</a>
+  </section>
+  <div class="container section" id="portfolio" style="padding-bottom:36px;">
+    <div class="eyebrow">Portfolio</div>
+    <h1>Selected <i>work</i></h1>
+    <div class="portfolio-count" id="portfolioCount">33 projects</div>
+    <div class="filter-bar" id="filterBar"></div>
+  </div>
+  <div class="portfolio-band"><div class="project-grid" id="projectGrid"></div></div>
+  <div class="container services section">
+    <div class="eyebrow">Services</div>
+    <div class="service-list">
+      <div class="service-item">
+        <h3>Video Editing</h3>
+        <p>I build the story out of raw footage and find the pace that holds it together.</p>
       </div>
-    </section>
-
-    <!-- Trusted by -->
-    <section class="trusted" style="padding:46px 0;">
-      <div class="container center">
-        <div class="eyebrow">Trusted by</div>
-        <div class="logos">
-          <img src="https://carbon-media.accelerator.net/0000000mHpW/24Pv0zSEICHeSd34TcKPeR;384x59.png?auto=webp" alt="Client logo" style="height:30px">
-          <img src="https://carbon-media.accelerator.net/0000000mHpW/8nLs9n3baJ7g8ocMaYOfaK;384x77.png?auto=webp" alt="Client logo" style="height:38px">
-          <img src="https://carbon-media.accelerator.net/0000000mHpW/0yHCfSuijrDevl0h6b2Iud;384x384.png?auto=webp" alt="Client logo" style="height:56px">
-          <img src="https://carbon-media.accelerator.net/0000000mHpW/5I1uIX6ZL5Wg9pllIZGRgF;384x216.png?auto=webp" alt="Client logo" style="height:48px">
-          <img src="https://carbon-media.accelerator.net/0000000mHpW/l63ZEqiuQ48drsp6W6eaV6;384x120.png?auto=webp" alt="Client logo" style="height:40px">
-        </div>
+      <div class="service-item">
+        <h3>Color Grading</h3>
+        <p>Grading every shot so the piece feels like one film and fits your brand.</p>
       </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="section">
-      <div class="container">
-        <div class="section-head center">
-          <div class="eyebrow">Kind words</div>
-          <h2>What our clients say</h2>
-          <p>A few of the hundreds of teams we've helped turn raw footage into results.</p>
-        </div>
-        <div class="testi-grid">
-          <img loading="lazy" width="1100" height="402" src="https://carbon-media.accelerator.net/0000000mHpW/8XCiG9cxwb4eAyIKsgEFBK;1100x402.png?auto=webp" alt="Client testimonial">
-          <img loading="lazy" width="1100" height="456" src="https://carbon-media.accelerator.net/0000000mHpW/4EuKxf3m4q8en6NHxNKPEy;1100x456.png?auto=webp" alt="Client testimonial">
-          <img loading="lazy" width="1100" height="448" src="https://carbon-media.accelerator.net/0000000mHpW/iR7ZxK09wxofbagCPu7EWG;1100x448.png?auto=webp" alt="Client testimonial">
-          <img loading="lazy" width="1100" height="487" src="https://carbon-media.accelerator.net/0000000mHpW/8FtxVgx2PvTdAtsZDrMNTK;1100x487.png?auto=webp" alt="Client testimonial">
-          <img loading="lazy" width="1100" height="540" src="https://carbon-media.accelerator.net/0000000mHpW/lqkgufkKDSGb9OnLYF6euC;1100x540.png?auto=webp" alt="Client testimonial">
-          <img loading="lazy" width="1100" height="491" src="https://carbon-media.accelerator.net/0000000mHpW/9o244B5xucUeVpH3T0aoft;1100x491.png?auto=webp" alt="Client testimonial">
-          <img loading="lazy" width="1100" height="340" src="https://carbon-media.accelerator.net/0000000mHpW/1f7fw9kFfrCbrlnlcY7h1P;1100x340.png?auto=webp" alt="Client testimonial">
-          <img loading="lazy" width="1100" height="399" src="https://carbon-media.accelerator.net/0000000mHpW/lejZvf1Xd1XcvcvCn9Zc3D;1100x399.png?auto=webp" alt="Client testimonial">
-          <img loading="lazy" width="1100" height="396" src="https://carbon-media.accelerator.net/0000000mHpW/0EsZFLtQY9reXHcOkWqe8U;1100x396.png?auto=webp" alt="Client testimonial">
-          <img loading="lazy" width="1100" height="458" src="https://carbon-media.accelerator.net/0000000mHpW/0dN0xbOMdvcbOOkm6lVIIA;1100x458.png?auto=webp" alt="Client testimonial">
-          <img loading="lazy" width="1100" height="493" src="https://carbon-media.accelerator.net/0000000mHpW/47kcAfCoiOEe0HjKl8nwsv;1100x493.png?auto=webp" alt="Client testimonial">
-          <img loading="lazy" width="1100" height="457" src="https://carbon-media.accelerator.net/0000000mHpW/gLy1GivnLU2eyyh2HIKH7X;1100x457.png?auto=webp" alt="Client testimonial">
-        </div>
-        <div class="center" style="margin-top:44px;">
-          <a class="btn btn-primary" href="contact.html">Start your project</a>
-        </div>
+      <div class="service-item">
+        <h3>Motion Graphics &amp; Animation</h3>
+        <p>Titles, lower-thirds, logo animation, and light 2D work when a scene needs it.</p>
       </div>
-    </section>
-  </main>
+      <div class="service-item">
+        <h3>Sound Design &amp; Mixing</h3>
+        <p>Cleaning up dialogue, balancing the music, and mixing for broadcast and streaming.</p>
+      </div>
+      <div class="service-item">
+        <h3>Subtitling &amp; Localization</h3>
+        <p>Subtitles and full language versions in English, Portuguese, and Spanish.</p>
+      </div>
+      <div class="service-item">
+        <h3>Licensed Music &amp; Stock</h3>
+        <p>Finding and licensing the right music and stock, cleared and ready to publish.</p>
+      </div>
+    </div>
+  </div>
+  <div class="container section" id="about">
+    <div class="about-wrap">
+      <div class="about-photo"><img src="assets/img/catarina-portrait.jpg" alt="Catarina Fidalgo"></div>
+      <div class="about-text">
+        <div class="eyebrow">About</div>
+        <p class="copy">I'm a video editor based in Portugal. For about ten years I've worked with brands, agencies, and creative teams around the world.</p>
+        <p class="copy">Most of what I do is commercials, brand films, social content, and corporate video. I care most about the story underneath the footage, since that's usually what decides whether an edit lands.</p>
+        <p class="copy">I work in English, Portuguese, and Spanish, which helps when a brand is making the same thing for more than one market.</p>
+      </div>
+    </div>
+  </div>
+  <div class="container section" id="for-agencies">
+    <div class="eyebrow">For agencies</div>
+    <h1>A white-label partner for agencies who need to <i>scale</i></h1>
+    <p class="copy">When there's overflow work, a tight deadline, or a client asking for more video than your team can make on its own, I work behind the scenes as your post-production partner. Everything ships under your brand, not mine.</p>
+    <div class="agency-grid">
+      <div class="agency-card"><div class="t">NDA-friendly, always</div><div class="d">Your client relationships stay yours — I never appear in the credits or the conversation.</div></div>
+      <div class="agency-card"><div class="t">Built for turnaround</div><div class="d">Send me a brief and raw footage; get broadcast-ready edits back on your timeline, not mine.</div></div>
+      <div class="agency-card"><div class="t">Scales with your pipeline</div><div class="d">One-off overflow project or an ongoing monthly retainer — I flex to what your agency needs.</div></div>
+    </div>
+    <a class="btn" style="margin-top:26px;display:inline-block;" href="#contact">Let's talk about your next project</a>
+  </div>
+  <div class="container section" id="contact">
+    <div class="eyebrow">Contact</div>
+    <h1>Let's work <i>together.</i></h1>
+    <p class="copy">Tell me a little about your project and I'll get back to you personally.</p>
+    <form class="contact-form" id="contact-form" novalidate>
+      <div class="field">
+        <label for="name">Name <span class="req">*</span></label>
+        <input type="text" id="name" name="name" autocomplete="name" required>
+      </div>
+      <div class="field">
+        <label for="email">Email <span class="req">*</span></label>
+        <input type="email" id="email" name="email" autocomplete="email" required>
+      </div>
+      <div class="field">
+        <label for="company">Company</label>
+        <input type="text" id="company" name="company" autocomplete="organization">
+      </div>
+      <div class="field">
+        <label for="video-type">Type of video</label>
+        <select id="video-type" name="video_type">
+          <option value="" selected>Select a type…</option>
+          <option>Brand Identity Video</option>
+          <option>Corporate / Promo Video</option>
+          <option>Explainer Video</option>
+          <option>Social Media Videos / Reels</option>
+          <option>YouTube Video</option>
+          <option>Testimonial / Interview Video</option>
+          <option>Event Promo / Recap Video</option>
+          <option>Corporate Training Video</option>
+          <option>E-Learning / Video Course</option>
+          <option>TV Commercial / Ad</option>
+          <option>Highlight Reel</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="message">Message <span class="req">*</span></label>
+        <textarea id="message" name="message" placeholder="What are you looking to create?" required></textarea>
+      </div>
+      <button type="submit" class="btn">Send message</button>
+      <p class="form-note" id="form-status">This opens your email app with the details pre-filled — no data is stored on this site.</p>
+    </form>
+  </div>
 
-  <footer class="site-footer">
+
+  <footer class="site">
     <div class="container">
-      <div class="copy">© Visual Studios <span id="yr">2024</span></div>
-      <div class="socials">
-        <a href="mailto:hello@visualstudios.pro">Email</a>
+      <div class="foot-brand">
+        <div class="foot-logo">Catarina <i>Fidalgo</i></div>
+        <div class="foot-tag">Video that moves people</div>
+        <div class="copy">© <span id="yr">2026</span> Catarina Fidalgo · All rights reserved</div>
+      </div>
+      <div class="foot-cta">
+        <a class="btn btn--ghost-light" href="#contact">Get in touch</a>
+        <div class="socials"><a href="mailto:catarinamesquitafidalgo@gmail.com">catarinamesquitafidalgo@gmail.com</a></div>
       </div>
     </div>
   </footer>
 
+  <div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this) closeModal()">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+      <button class="modal-nav modal-prev" onclick="showPrev(event)">&#8249;</button>
+      <button class="modal-nav modal-next" onclick="showNext(event)">&#8250;</button>
+      <div class="modal-media">
+        <video id="modalVideo" muted controls autoplay loop playsinline></video>
+        <div class="modal-media-empty" id="modalMediaEmpty"><span>Video coming soon</span></div>
+        <div class="modal-counter" id="modalCounter"></div>
+      </div>
+      <div class="modal-thumbs" id="modalThumbs"></div>
+      <div class="modal-info">
+        <div class="modal-cat" id="modalCat"></div>
+        <div class="modal-title" id="modalTitle"></div>
+        <div class="modal-media-caption" id="modalMediaCaption"></div>
+        <div class="modal-desc" id="modalDesc"></div>
+        <div class="modal-meta" id="modalTasksRow"><span class="modal-meta-label">Tasks</span><span id="modalTasks"></span></div>
+        <div class="modal-meta" id="modalIndustryRow"><span class="modal-meta-label">Industry</span><span class="modal-tags" id="modalIndustry"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  const PROJECTS = [
+    {brand:'Espanita Tequila', type:'Brand Identity Video', desc:'Brand video that embodies the essence of Espanita Tequila, a spirit made in collaboration with Pitbull. Additionally, we crafted an impactful short version tailored for social media platforms.', tasks:'Editing, Color Grading, Motion Graphics, Motion Titling, Licensed Music, Sound Mixing and Sound Design', industries:['Food & Beverage', 'Products Supplying/Manufacturing'], media:[{video:'assets/video/espanita.mp4', gif:'assets/img/cover/espanita-g.jpg', caption:'Brand Film'}, {video:'assets/video/espanita-square.mp4', gif:'assets/img/cover/espanita-square.jpg', caption:'Social Ad'}], poster:'assets/img/cover/espanita-g.jpg', video:''},
+    {brand:'SimilarWeb', type:'Explainer Video', desc:'Explainer video with animated text and elements for SimilarWeb, a leading software development and data aggregation company.', tasks:'Editing, Color Grading, Keying, Motion Graphics, Animated Elements, Motion Titles, Audio Mixing', industries:['Software Development', 'Data Analytics', 'Technology'], poster:'assets/img/cover/similarweb-b.jpg', video:'assets/video/similarweb.mp4'},
+    {brand:'Moroccanoil', type:'Social Media Videos / Reels', desc:'Short social media videos for Moroccanoil\'s social media platforms.', tasks:'Editing, Licensed Music, Color Grading, Color Correction', industries:['Beauty & Cosmetics'], poster:'assets/img/cover/moroccanoil-b.jpg', video:'assets/video/moroccanoil.mp4'},
+    {brand:'Coca-Cola', type:'Corporate / Promo Video', desc:'Corporate video for internal using Coca-Cola Europacific\'s materials and licensed premium stock footage.', tasks:'Editing, Color Grading, Motion Titles, Motion Graphics, Licensed Music, Color Correction, Licensed Stock Footage', industries:['Food & Beverage', 'Products Supplying/Manufacturing'], poster:'assets/img/cover/coca-cola-start2.jpg', video:'assets/video/coca-cola.mp4'},
+    {brand:'FAT Brands Inc.', type:'Testimonial / Interview Video', desc:'Ten interviews with FAT Brands master franchisees and a narrative-based highlight reel. FAT Brands Inc., a leading global franchising company that strategically acquires, markets, and develops restaurant concepts worldwide. Some of their brands include Fat Burger, Johnny Rockets, Round Table Pizza and Marble Slab Creamery.', tasks:'Editing, Color Correction, Color Grading, Motion Graphics, Licensed Music, Sound Mixing', industries:['Food & Beverage', 'Fast Food', 'Food Manufacturing'], poster:'assets/img/cover/fatbrands-a.jpg', video:'assets/video/fatbrands.mp4'},
+    {brand:'UNESCO', type:'Corporate / Promo Video', desc:'Corporate video for internal use with voiceover and licensed premium stock footage for UNESCO and their O3 (Our Rights, Our Lives, Our Future).', tasks:'Editing, Motion Titling, Sound Mixing, Audio Mixing, Sound Design, Color Grading, Motion Graphics, Licensed Stock Footage and Music', industries:['Medical & Health Education', 'Youth Education', 'Research Foundation/Research', 'Early Age Education', 'Medical & Pharmaceutical', 'Non-Profit'], poster:'assets/img/cover/unesco-g.jpg', video:'assets/video/unesco.mp4'},
+    {brand:'The AI School', type:'E-Learning / Video Course', desc:'2 hour video course with 9 lessons, with motion graphics for the AI School.', tasks:'Editing, Color Grading, Motion Graphics, Licensed Music, Motion Titles, Sound Mixing', industries:['Technology', 'Education', 'Artificial Intelligence (AI)'], poster:'assets/img/cover/aischool-a.jpg', video:'assets/video/aischool.mp4'},
+    {brand:'Capgemini', type:'Corporate / Promo Video', desc:'60\' corporate promo video with stock footage and animated elements for Capgemini, a global leader in consulting, technology services and digital transformation.', tasks:'Editing, Color Grading, Animated Text and Elements, Licensed Stock Footage and Music', industries:['Engineering', 'Technology Consulting'], poster:'assets/img/cover/capgemini-g5.jpg', video:'assets/video/capgemini.mp4'},
+    {brand:'APEL', type:'Event Promo / Recap Video', desc:'Event promo videos with animated elements, voiceover and licensed premium stock footage for APEL (Associação Portuguesa de Editores e Livreiros).', tasks:'', industries:['Books Publishing', 'E-book Publishing', 'Books & Literature', 'Education', 'Non-Profit'], poster:'assets/img/cover/apel-r3.jpg', video:'assets/video/apel.mp4'},
+    {brand:'Five Oaks', type:'Social Media Videos / Reels', desc:'Educational videos, videos for events and ads for Five Oaks, a research and educational center dedicated to preserving wetlands and ensuring robust waterfowl populations.', tasks:'Editing, Color Grading, Licensed Music, Motion Graphics, Animated Elements, Sound Mixing', industries:['Education', 'Nature Conservation & Biodiversity', 'Forestry', 'Early Age Education', 'Youth Education', 'Event Videos'], poster:'assets/img/cover/fiveoaks-b.jpg', video:'assets/video/fiveoaks.mp4'},
+    {brand:'Apex Imaging Services', type:'Corporate / Promo Video', desc:'Corporate quarterly videos for internal use with motion graphics for Apex Imaging Services, showcasing the company\'s achievements, progress and vision for the future.', tasks:'Editing, Color Grading, Licensed Music, Motion Graphics, Animated Elements, Sound Mixing', industries:['Construction', 'Logistics', 'Manufacturing & Storage', 'Maintenance & Installation', 'Industrial Manufacturing & Storage'], poster:'assets/img/cover/apex-b.jpg', video:'assets/video/apex.mp4'},
+    {brand:'Volkswagen', type:'TV Commercial / Ad', desc:'30-second television advertisement commercial for the Hawk Volkswagen of Monroeville dealership.', tasks:'Editing, Color Grading, Motion Graphics, Sound Mixing', industries:['Auto Dealership'], poster:'assets/img/cover/volkswagen-b.jpg', video:'assets/video/volkswagen.mp4'},
+    {brand:'Danone', type:'Testimonial / Interview Video', desc:'Series of social media videos (landscape and vertical) with animated text and elements for Danone Nutricia Campus, a non-profit educational platform for healthcare professionals, co-founded by Danone and nutrition experts to advance the field of nutrition and health.', tasks:'Editing, Color Grading, Motion Graphics, Animated Elements, Motion Titles, Audio Mixing', industries:['Nutrition', 'Medical & Health Education', 'Non-Profit'], poster:'assets/img/cover/danone-a.jpg', video:'assets/video/danone.mp4'},
+    {brand:'Southern Pipe & Supply', type:'Testimonial / Interview Video', desc:'3 minute, multicam, narrative-based testimonial video with Southern Pipe\'s employees. Southern Pipe & Supply serves professionals and homeowners across the Southeast with plumbing, heating & air-conditioning (HVAC), water works, industrial and electrical supplies.', tasks:'Editing, Color Correction, Color Grading, Motion Graphics, Licensed Music, Sound Mixing', industries:['Home Supplies', 'Plumbing', 'Air-Condition Services'], poster:'assets/img/cover/southernpipe-b.jpg', video:'assets/video/southernpipe.mp4'},
+    {brand:'The Snow Lodge', type:'Event Promo / Recap Video', desc:'Event recap video for social media for The Snow Lodge, a winter-time, entertainment concept.', tasks:'Editing, Color Grading, Color Correction, Licensed Music, Titling', industries:['Community & Clubs', 'Night Clubs', 'Musical Event', 'Events & Celebrations', 'Media & Entertainment', 'Hospitality'], poster:'assets/img/cover/snowlodge-b.jpg', video:'assets/video/snowlodge.mp4'},
+    {brand:'CALPG', type:'Corporate Training Video', desc:'45 minute corporate training video with motion graphics and animated elements for The California Council on Problem Gambling, a non-profit organization dedicated to assisting problem gamblers, casinos and their staff.', tasks:'Editing, Color Grading, Motion Graphics, Animated Elements, Licensed Music, Licensed Stock Footage, Motion Titles, Sound Mixing', industries:['Medical & Health Education', 'Mental Health Care', 'Gambling', 'Casinos', 'Non-Profit', 'Education'], poster:'', video:''},
+    {brand:'ThinkShop By The Garden', type:'Explainer Video', desc:'Explainer video with interview and b-roll for The Garden to promote ThinkShop, a comprehensive professional development program.', tasks:'Editing, Color Grading, Motion Graphics, Animated Elements, Licensed Music, Motion Titles, Sound Mixing', industries:['Personal Consulting', 'Developmental Therapy', 'Psychology', 'Education', 'Professional Services & Consulting', 'HR & Recruiting Services'], poster:'assets/img/cover/thinkshop-intro.jpg', video:'assets/video/thinkshop.mp4'},
+    {brand:'Perfect Jeans', type:'TV Commercial / Ad', desc:'Ad for Perfect Jeans, a Danish jeans brand. For website, social media and television (TV2) The target audience is women between the ages of 35 - 65 and families in general', tasks:'Editing, Motion Graphics', industries:['Fashion & Apparel'], poster:'assets/img/cover/perfectjeans-b.jpg', video:'assets/video/perfectjeans.mp4'},
+    {brand:'FEAM Aero', type:'Corporate / Promo Video', desc:'Corporate video with no sound, with animated elements for a trade show booth, showcasing FEAM Aero, the leading provider of MRO and Aviation Line Maintenance Services globally.', tasks:'Editing, Motion Graphics', industries:['Aerospace & Avionics Engineering'], poster:'assets/img/cover/feamaero-map.jpg', video:'assets/video/feamaero.mp4'},
+    {brand:'You\'ve Been Desserted', type:'YouTube Video', desc:'Youtube videos with animated elements for "You\'ve Been Desserted", a multicam show hosted by the renowned pastry chef and cake designer, Joshua John Russell. As the editing team behind the scenes, we crafted each episode closely with the producers, ensuring good comedic timing and engaging storytelling.', tasks:'Editing, Color Grading, Motion Graphics, Animated Elements, Licensed Music, Sound Mixing, Sound Design', industries:['Food & Beverage Blog/Channel'], poster:'assets/img/cover/desserted-title.jpg', video:'assets/video/desserted.mp4'},
+    {brand:'SmallPond', type:'Social Media Videos / Reels', desc:'A full social campaign for SmallPond, a provider of curated, end-to-end group travel experiences — two hero ads (a 30-second landscape spot and a 60-second square cut) and five vertical reels for Instagram.', tasks:'Editing, Color Grading, Licensed Music', industries:['Travel & Tourism Agency', 'Hospitality'], media:[{video:'assets/video/smallpond-ad-30.mp4', gif:'assets/img/cover/smallpond-ad-30.jpg', caption:'30-Second Ad'}, {video:'assets/video/smallpond-ad-square.mp4', gif:'assets/img/cover/smallpond-ad-square.jpg', caption:'Square Ad'}, {video:'assets/video/smallpond-reel-1.mp4', gif:'assets/img/cover/smallpond-reel-1.jpg', caption:'Reel 1'}, {video:'assets/video/smallpond-reel-2.mp4', gif:'assets/img/cover/smallpond-reel-2.jpg', caption:'Reel 2'}, {video:'assets/video/smallpond-reel-3.mp4', gif:'assets/img/cover/smallpond-reel-3.jpg', caption:'Reel 3'}, {video:'assets/video/smallpond-reel-4.mp4', gif:'assets/img/cover/smallpond-reel-4.jpg', caption:'Reel 4'}, {video:'assets/video/smallpond-reel-5.mp4', gif:'assets/img/cover/smallpond-reel-5.jpg', caption:'Reel 5'}], poster:'assets/img/cover/smallpond-ad-30.jpg', video:''},
+    {brand:'Litify', type:'Corporate / Promo Video', desc:'Corporate promo video and event promo video with motion graphics for Litify, a all-in-one legal platform created by lawyers for lawyers.', tasks:'Editing, Licensed Music, Motion Graphics and Animation, Color Grading', industries:['Law', 'Event Videos', 'Technology', 'Financial & Business Services', 'Events & Celebrations'], poster:'assets/img/cover/litify-a.jpg', video:'assets/video/litify.mp4'},
+    {brand:'The Washington Ballet', type:'Social Media Videos / Reels', desc:'Series of 3 videos with animated text showcasing Washington Ballet\'s 22/23 season program and promoting the company\'s brand. With a blend of evocative visuals and classical music, these videos serve as tools to ignite excitement for The Washington Ballet\'s upcoming performances.', tasks:'Editing, Color Grading, Motion Graphics', industries:['Dancing', 'Fine Arts'], media:[{video:'assets/video/ballet-1.mp4', gif:'assets/img/cover/ballet-1.jpg', caption:'Season Teaser'}, {video:'assets/video/ballet-2.mp4', gif:'assets/img/cover/ballet-2.jpg', caption:'Program Highlights'}, {video:'assets/video/ballet-3.mp4', gif:'assets/img/cover/ballet-3.jpg', caption:'Brand Film'}], poster:'assets/img/cover/ballet-1.jpg', video:''},
+    {brand:'U-ARE', type:'Corporate / Promo Video', desc:'Narrative-based video with voiceover and licensed stock footage to showcase U-ARE\'s technologies in the field of medical training. U-ARE is a multidisciplinary digital design agency specialized in emerging technologies such as Augmented Reality (AR), Virtual Reality (VR) and Artificial Intelligence (AI).', tasks:'Editing, Color Grading, Licensed Stock Footage and Music, Voiceover Casting and Direction', industries:['Artificial Intelligence (AI)', 'Medical & Health Education', 'Technology', 'Virtual Reality', 'Medical & Pharmaceutical', 'Health Care & Medical Center'], poster:'', video:''},
+    {brand:'KAUST', type:'Testimonial / Interview Video', desc:'Narrative-based highlight videos using interviews about the SRSI program for King Abdullah University of Science and Technology (KAUST).', tasks:'Editing, Color Grading, Motion Graphics, Licensed Music', industries:['Education', 'Academic Education', 'Science', 'Technology', 'Engineering', 'Teaching & Lecturing'], poster:'', video:''},
+    {brand:'Savage Training Group', type:'Corporate Training Video', desc:'18 corporate training videos for Savage Training Group, a law enforcement training organization.', tasks:'Editing, Keying, Motion Graphics, Color Grading, Licensed Music', industries:['Law', 'Education', 'Education Organization'], poster:'', video:''},
+    {brand:'Bianco+Ye', type:'Brand Identity Video', desc:'Brand identity video with motion titles for Bianco+Ye, a full-service creative agency co-founded by Yerong Xu and Simone Bianconcini.', tasks:'Editing, Color Grading and Correction, Licensed Music, Motion Titles', industries:['Marketing & Advertising', 'Marketing Agency', 'Advertising Agency', 'Beauty & Cosmetics', 'Fashion & Apparel', 'Design Agency'], poster:'', video:''},
+    {brand:'Insignia', type:'Corporate / Promo Video', desc:'A year in review video with motion graphics and animated elements for Insignia, showcasing their identification and traceability solutions to Australian businesses.', tasks:'Editing, Color Grading, Motion Graphics, Animated Elements, Sound Design, Audio Mixing, Motion Titles', industries:['Logistics'], poster:'', video:''},
+    {brand:'Martin Concrete Construction', type:'Corporate Training Video', desc:'Series of short 120 corporate training videos in spanish for new hires at Martin Concrete Construction.', tasks:'Editing, Color Grading, Sound Mixing', industries:['Construction', 'Infrastructure Construction', 'Real Estate', 'Residential Real Estate'], poster:'', video:''},
+    {brand:'Thetaray', type:'Corporate / Promo Video', desc:'A video with no sound with animated elements for a corporate event screen booth. ThetaRay is transforming the way financial institutions and payment service providers (PSPs) benefit from data with an AI-based SaaS transaction monitoring solution.', tasks:'Editing, Color Grading, Subtitling, Motion Graphics, Animated Elements', industries:['Fintech', 'Banking', 'Artificial Intelligence (AI)'], poster:'', video:''},
+    {brand:'Fairmont Hotels', type:'Social Media Videos / Reels', desc:'3 short social media reels for social media platforms for the Fairmont Hotels.', tasks:'Editing, Color Grading, Licensed Music', industries:['Travel & Tourism', 'Hospitality', 'Spa'], media:[{video:'assets/video/fairmont-3.mp4', gif:'assets/img/cover/fairmont-3.jpg', caption:'The Getaway'}, {video:'assets/video/fairmont-1.mp4', gif:'assets/img/cover/fairmont-1.jpg', caption:'Dining & Bar'}, {video:'assets/video/fairmont-2.mp4', gif:'assets/img/cover/fairmont-2.jpg', caption:'Work & Stay'}], poster:'assets/img/cover/fairmont-3.jpg', video:''},
+    {brand:'The British Plastics Federation', type:'Explainer Video', desc:'Explainer video with voiceover and licensed premium stock footage for The British Plastics Federation explaining the benefits of joining the polymer industry.', tasks:'Editing, Color Grading, Stock Footage Licensing, Audio Mixing, Licensed Music, Motion Titles', industries:['Medical & Health Education', 'Services', 'Renewable Energy', 'Solar Energy', 'Wind Energy', 'Engineering'], poster:'', video:''},
+    {brand:'Peter Jackson', type:'Social Media Videos / Reels', desc:'Promo videos for social media for Peter Jackson, a menswear fashion brand.', tasks:'Editing, Color Grading, Licensed Music', industries:['Fashion & Apparel'], poster:'', video:''}
+  ];
+
+  // --- Filtering state ---
+  let activeFilter = null;
+  let view = [];
+  let currentPos = 0;
+
+  function computeView() {
+    view = PROJECTS
+      .map((p, i) => i)
+      .filter(i => !activeFilter || PROJECTS[i].industries.indexOf(activeFilter) !== -1);
+  }
+
+  let filtersExpanded = false;
+  const FILTER_VISIBLE = 8;
+
+  function renderFilters() {
+    const counts = {};
+    PROJECTS.forEach(p => p.industries.forEach(ind => { counts[ind] = (counts[ind] || 0) + 1; }));
+    const shared = Object.keys(counts)
+      .filter(k => counts[k] >= 2)
+      .sort((a, b) => counts[b] - counts[a] || a.localeCompare(b));
+    let shown = filtersExpanded ? shared : shared.slice(0, FILTER_VISIBLE);
+    // Always keep the active filter visible even when collapsed
+    if (activeFilter && shared.indexOf(activeFilter) !== -1 && shown.indexOf(activeFilter) === -1) {
+      shown = shown.concat([activeFilter]);
+    }
+    const chips = ['<button class="filter-chip' + (activeFilter === null ? ' active' : '') +
+      '" onclick="setFilter(null)">All work</button>'];
+    shown.forEach(ind => {
+      chips.push('<button class="filter-chip' + (activeFilter === ind ? ' active' : '') +
+        '" onclick="setFilter(\'' + ind.replace(/'/g, "\\'") + '\')">' + ind + '</button>');
+    });
+    if (shared.length > FILTER_VISIBLE) {
+      chips.push('<button class="filter-chip filter-more" onclick="toggleFilters()">' +
+        (filtersExpanded ? 'Less −' : '+' + (shared.length - FILTER_VISIBLE) + ' more') + '</button>');
+    }
+    document.getElementById('filterBar').innerHTML = chips.join('');
+  }
+
+  function toggleFilters() {
+    filtersExpanded = !filtersExpanded;
+    renderFilters();
+  }
+
+  // Normalize a project's media into a list of {video, gif, caption}.
+  // Single-video projects fall back to the old poster/video fields.
+  function mediaOf(p) {
+    if (p.media && p.media.length) return p.media;
+    return [{ video: p.video || '', gif: p.poster || '', caption: '' }];
+  }
+
+  function renderGrid() {
+    const grid = document.getElementById('projectGrid');
+    grid.innerHTML = view.map(i => {
+      const p = PROJECTS[i];
+      const list = mediaOf(p);
+      const lead = list[0];
+      const multi = list.length > 1;
+      const inner = lead.gif ? '<img loading="lazy" src="' + lead.gif + '">' : '';
+      const badge = multi ? '<span class="thumb-badge"><span class="tb-icon">⧉</span>' + list.length + ' Videos</span>' : '';
+      return '<div class="project-card' + (multi ? ' project-card--multi' : '') + '" onclick="openModal(' + i + ')">' +
+        '<div class="thumb' + (lead.gif ? '' : ' thumb--empty') + '">' + inner + '</div>' +
+        badge +
+        '<div class="overlay">' +
+          '<span class="cat">' + p.type + '</span>' +
+          '<h3 class="title">' + p.brand + '</h3>' +
+          '<div class="view">View project →</div>' +
+        '</div>' +
+      '</div>';
+    }).join('');
+    const c = document.getElementById('portfolioCount');
+    if (c) c.textContent = view.length + (view.length === 1 ? ' project' : ' projects');
+  }
+
+  function setFilter(ind) {
+    activeFilter = ind;
+    computeView();
+    renderFilters();
+    renderGrid();
+  }
+
+  let currentMedia = 0;
+
+  // Renders the selected video (or placeholder), its caption, and the thumb strip.
+  function renderMedia() {
+    const p = PROJECTS[view[currentPos]];
+    const list = mediaOf(p);
+    const m = list[currentMedia] || list[0];
+    const v = document.getElementById('modalVideo');
+    const empty = document.getElementById('modalMediaEmpty');
+    if (m.video) {
+      v.src = m.video;
+      v.poster = m.gif || '';
+      v.style.display = '';
+      empty.style.display = 'none';
+    } else {
+      v.removeAttribute('src');
+      v.load();
+      v.style.display = 'none';
+      empty.style.display = 'flex';
+    }
+    const cap = document.getElementById('modalMediaCaption');
+    cap.textContent = m.caption || '';
+    cap.style.display = m.caption ? 'block' : 'none';
+    const thumbs = document.getElementById('modalThumbs');
+    if (list.length > 1) {
+      thumbs.style.display = 'flex';
+      thumbs.innerHTML = list.map((mm, idx) =>
+        '<button class="modal-thumb' + (idx === currentMedia ? ' active' : '') + '" onclick="showMedia(' + idx + ')">' +
+          (mm.gif ? '<img class="mt-img" src="' + mm.gif + '">' : '<span class="mt-img"></span>') +
+          '<span class="mt-cap">' + (mm.caption || ('Video ' + (idx + 1))) + '</span>' +
+        '</button>'
+      ).join('');
+    } else {
+      thumbs.style.display = 'none';
+      thumbs.innerHTML = '';
+    }
+  }
+
+  function showMedia(idx) {
+    currentMedia = idx;
+    renderMedia();
+  }
+
+  function renderModal() {
+    const p = PROJECTS[view[currentPos]];
+    currentMedia = 0;
+    renderMedia();
+    document.getElementById('modalCat').textContent = p.type;
+    document.getElementById('modalTitle').textContent = p.brand;
+    document.getElementById('modalDesc').textContent = p.desc;
+    document.getElementById('modalTasks').textContent = p.tasks || '';
+    document.getElementById('modalTasksRow').style.display = p.tasks ? 'flex' : 'none';
+    const indBox = document.getElementById('modalIndustry');
+    indBox.innerHTML = (p.industries || []).map(ind =>
+      '<span class="modal-tag" onclick="filterFromModal(\'' + ind.replace(/'/g, "\\'") + '\')">' + ind + '</span>'
+    ).join('');
+    document.getElementById('modalIndustryRow').style.display = (p.industries && p.industries.length) ? 'flex' : 'none';
+    document.getElementById('modalCounter').textContent = (currentPos + 1) + ' / ' + view.length;
+  }
+
+  function openModal(i) {
+    currentPos = view.indexOf(i);
+    if (currentPos === -1) currentPos = 0;
+    renderModal();
+    document.getElementById('modalOverlay').classList.add('open');
+  }
+  function closeModal() {
+    document.getElementById('modalOverlay').classList.remove('open');
+    document.getElementById('modalVideo').pause();
+  }
+  function filterFromModal(ind) {
+    closeModal();
+    setFilter(ind);
+    document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
+  }
+  function showNext(e) { if (e) e.stopPropagation(); currentPos = (currentPos + 1) % view.length; renderModal(); }
+  function showPrev(e) { if (e) e.stopPropagation(); currentPos = (currentPos - 1 + view.length) % view.length; renderModal(); }
+  document.addEventListener('keydown', function (e) {
+    if (!document.getElementById('modalOverlay').classList.contains('open')) return;
+    if (e.key === 'Escape') closeModal();
+    if (e.key === 'ArrowRight') showNext();
+    if (e.key === 'ArrowLeft') showPrev();
+  });
+
+  computeView();
+  renderFilters();
+  renderGrid();
+
+  // --- Mobile nav toggle ---
+  function toggleNav(btn) {
+    const nav = document.getElementById('siteNav');
+    const open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  document.getElementById('siteNav').addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') {
+      this.classList.remove('open');
+      document.querySelector('.nav-toggle').setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // --- Scroll-spy: highlight the nav link for the section in view ---
+  (function () {
+    const links = Array.from(document.querySelectorAll('nav.main a'));
+    const map = {};
+    links.forEach(a => { const id = a.getAttribute('href').slice(1); if (id) map[id] = a; });
+    const sections = Object.keys(map).map(id => document.getElementById(id)).filter(Boolean);
+    if (!('IntersectionObserver' in window) || !sections.length) return;
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(en => {
+        if (en.isIntersecting) {
+          links.forEach(a => a.classList.remove('active'));
+          const a = map[en.target.id];
+          if (a) a.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+    sections.forEach(s => obs.observe(s));
+  })();
+  </script>
   <script>var y=document.getElementById('yr');if(y)y.textContent=new Date().getFullYear();</script>
-  <script src="assets/nav.js"></script>
-  <script src="assets/media.js"></script>
+  <script src="assets/contact.js"></script>
 </body>
 </html>

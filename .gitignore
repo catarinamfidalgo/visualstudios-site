@@ -1,0 +1,10 @@
+# macOS clutter
+.DS_Store
+
+# Raw video masters — too large for GitHub (100MB per-file limit).
+# These live on Catarina's Mac only. Compressed web versions will be
+# added later, or the videos will be hosted externally.
+assets/video/
+
+# Scratch contact sheets used to pick cover frames
+assets/*_sheet.jpg
