@@ -8,3 +8,6 @@ assets/video/
 
 # Scratch contact sheets used to pick cover frames
 assets/*_sheet.jpg
+
+# YouTube thumbnails — generated from the covers, not needed by the site
+assets/thumbnails/
