@@ -1,0 +1,126 @@
+# YouTube ID map — paste the 11-character ID after each '= '
+#
+# In YouTube Studio, each video's link looks like:
+#     https://youtu.be/dQw4w9WgXcQ        <- dQw4w9WgXcQ is the ID
+#     https://www.youtube.com/watch?v=dQw4w9WgXcQ
+#
+# For 99Bitcoins and You've Been Desserted, use the ID of the ORIGINAL
+# public video on the client's channel — no need to re-upload those.
+#
+
+
+## Coca-Cola
+coca-cola.mp4                          =          # (single video)
+
+## UNESCO
+unesco.mp4                             =          # (single video)
+
+## FAT Brands Inc.
+fatbrands-highlight-reel.mp4           =          # Highlight Reel
+fatbrands-lloyd.mp4                    =          # Lloyd Sugarman — Johnny Rockets
+fatbrands-lorena.mp4                   =          # Lorena Jasso — Fatburger
+fatbrands-michael.mp4                  =          # Michael Bravo — Round Table Pizza
+
+## Moroccanoil
+moroccanoil-landscape.mp4              =          # Landscape
+moroccanoil-vertical-1.mp4             =          # Vertical 1
+moroccanoil-vertical-2.mp4             =          # Vertical 2
+
+## Espanita Tequila
+espanita.mp4                           =          # Brand Film
+espanita-square.mp4                    =          # Social Ad
+
+## Volkswagen
+volkswagen.mp4                         =          # (single video)
+
+## 99Bitcoins
+99bitcoins-idiocracy.mp4               =          # Idiocracy Predicted This
+99bitcoins-blackrock.mp4               =          # BlackRock
+99bitcoins-saudi-arabia.mp4            =          # Saudi Arabia
+
+## Binance
+binance.mp4                            =          # (single video)
+
+## Fairmont Hotels
+fairmont-3.mp4                         =          # The Getaway
+fairmont-1.mp4                         =          # Dining & Bar
+fairmont-2.mp4                         =          # Work & Stay
+
+## Danone
+danone-meet-the-board.mp4              =          # Meet the DNC Board
+danone-interview.mp4                   =          # Interview
+
+## The Washington Ballet
+ballet-1.mp4                           =          # Season Teaser
+ballet-2.mp4                           =          # Program Highlights
+ballet-3.mp4                           =          # Brand Film
+
+## Capgemini
+capgemini.mp4                          =          # (single video)
+
+## KAUST
+kaust-testimonials.mp4                 =          # Testimonials
+kaust-brand.mp4                        =          # Brand Film
+
+## Litify
+litify.mp4                             =          # (single video)
+
+## SmallPond
+smallpond-ad-30.mp4                    =          # 30-Second Ad
+smallpond-ad-square.mp4                =          # Square Ad
+smallpond-reel-1.mp4                   =          # Reel 1
+smallpond-reel-2.mp4                   =          # Reel 2
+smallpond-reel-3.mp4                   =          # Reel 3
+smallpond-reel-4.mp4                   =          # Reel 4
+smallpond-reel-5.mp4                   =          # Reel 5
+
+## Thetaray
+thetaray.mp4                           =          # (single video)
+
+## Peter Jackson
+peterjackson-30.mp4                    =          # 30-Second Ad
+peterjackson-15.mp4                    =          # 15-Second Cut
+
+## SimilarWeb
+similarweb.mp4                         =          # (single video)
+
+## The Snow Lodge
+snowlodge.mp4                          =          # (single video)
+
+## APEL
+apel.mp4                               =          # (single video)
+
+## Bianco+Ye
+bianco-ye.mp4                          =          # (single video)
+
+## Apex Imaging Services
+apex.mp4                               =          # (single video)
+
+## The AI School
+aischool-lesson-3-3.mp4                =          # Lesson 3.3
+aischool-chapter-4.mp4                 =          # Chapter 4 — Best Practices for Different Use Cases
+
+## You've Been Desserted
+desserted-dynasty-cake.mp4             =          # Dynasty Cake
+desserted-kransekake.mp4               =          # Norwegian Kransekake Wedding Cake
+desserted-orange-cake.mp4              =          # Orange Cake
+
+## Perfect Jeans
+perfectjeans.mp4                       =          # (single video)
+
+## ThinkShop By The Garden
+thinkshop.mp4                          =          # (single video)
+
+## Southern Pipe & Supply
+southernpipe.mp4                       =          # (single video)
+
+## Savage Training Group
+savage-1-confronting-a-lie.mp4         =          # Lesson 1 — Confronting a Lie
+savage-4-investigative-errors.mp4      =          # Lesson 4 — Investigative Errors
+savage-8-plato.mp4                     =          # Lesson 8 — P.L.A.T.O.
+
+## Five Oaks
+fiveoaks.mp4                           =          # (single video)
+
+## FEAM Aero
+feamaero.mp4                           =          # (single video)
