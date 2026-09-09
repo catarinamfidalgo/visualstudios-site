@@ -493,8 +493,14 @@
   // Normalize a project's media into a list of {video, gif, caption}.
   // Single-video projects fall back to the old poster/video fields.
   function mediaOf(p) {
-    if (p.media && p.media.length) return p.media;
-    return [{ video: p.video || '', gif: p.poster || '', caption: '' }];
+    const list = (p.media && p.media.length)
+      ? p.media
+      : [{ video: p.video || '', gif: p.poster || '', caption: '', yt: p.yt || '' }];
+    // Once any video in a project is on YouTube, show only the ones that are.
+    // This lets uploads happen in batches without the site ever showing a
+    // half-finished project.
+    const live = list.filter(m => m.yt);
+    return live.length ? live : list;
   }
 
   function renderGrid() {
