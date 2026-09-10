@@ -34,10 +34,10 @@
   a { color: inherit; text-decoration: none; }
   .container { max-width: 1000px; margin: 0 auto; padding: 0 28px; }
 
-  header.site { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; padding: 30px 0 24px; }
+  header.site { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; padding: 30px 0 24px; }
   .brand { font-weight: 800; font-size: 1.25rem; letter-spacing: .01em; text-transform: uppercase; font-family: 'Hanken Grotesk', sans-serif; }
   .brand i { font-style: normal; color: var(--accent); }
-  nav.main { display: flex; flex-direction: column; align-items: flex-end; gap: 7px; font-size: .72rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
+  nav.main { display: flex; flex-direction: column; align-items: flex-end; gap: 7px; line-height: 1.5; font-size: .72rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
   .header-cta { display: none; }
   nav.main a { transition: color .15s ease; color: var(--muted); }
   nav.main a:hover, nav.main a.active { color: var(--accent); }
@@ -315,14 +315,15 @@
       <div class="about-photo"><img src="assets/img/catarina-portrait.jpg" alt="Catarina Fidalgo"></div>
       <div class="about-text">
         <h2 class="eyebrow">About</h2>
-        <p class="copy">I'm a video editor based in Portugal. For about ten years I've worked with brands, agencies, and creative teams around the world.</p>
-        <p class="copy">Most of what I do is commercials, brand films, YouTube and social content, and corporate video. I care most about the story underneath the footage, since that's usually what decides whether an edit lands.</p>
-        <p class="copy">I work in English, Portuguese, and Spanish, which helps when a brand is making the same thing for more than one market.</p>
+        <p class="copy">I'm a video editor based in Portugal, working full-time since 2017 with brands, agencies and creative teams around the world.</p>
+        <p class="copy">Most of what I do is commercials, brand films, YouTube and social content, and corporate video. Often it's a series rather than a single piece — ten interviews cut into one film, eighteen training videos, a nine-lesson course.</p>
+        <p class="copy">I care most about the story underneath the footage. That's usually what decides whether a piece works.</p>
+        <p class="copy">I work in English, Portuguese and Spanish, which helps when a brand is making the same thing for more than one market.</p>
       </div>
     </div>
   </div>
   <div class="container section" id="for-agencies">
-    <h2 class="eyebrow">For Agencies</h2>
+    <div class="eyebrow">For Agencies</div>
     <h2>A white-label partner for agencies who need to <i>scale</i></h2>
     <p class="copy">When there's overflow work, a tight deadline, or a client asking for more video than your team can make on its own, I work behind the scenes as your post-production partner. Everything ships under your brand, not mine.</p>
     <div class="agency-grid">
