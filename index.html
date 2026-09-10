@@ -38,7 +38,6 @@
   .brand { font-weight: 800; font-size: 1.25rem; letter-spacing: .01em; text-transform: uppercase; font-family: 'Hanken Grotesk', sans-serif; }
   .brand i { font-style: normal; color: var(--accent); }
   nav.main { display: flex; flex-direction: column; align-items: flex-end; gap: 7px; line-height: 1.5; font-size: .72rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
-  .header-cta { display: none; }
   nav.main a { transition: color .15s ease; color: var(--muted); }
   nav.main a:hover, nav.main a.active { color: var(--accent); }
   .btn { display: inline-block; padding: .95em 1.7em; border-radius: 999px; font-weight: 700; font-size: .78rem; text-transform: uppercase; letter-spacing: .12em; background: var(--accent); color: var(--onaccent); border: 1px solid var(--accent); transition: background .15s ease, color .15s ease; }
@@ -182,8 +181,7 @@
   @media (max-width: 720px) {
     header.site { flex-wrap: wrap; }
     .nav-toggle { display: flex; }
-    .header-cta { display: none; }
-    nav.main { order: 3; flex-basis: 100%; flex-direction: column; gap: 4px; margin: 0; max-height: 0; overflow: hidden; transition: max-height .25s ease; }
+      nav.main { order: 3; flex-basis: 100%; flex-direction: column; gap: 4px; margin: 0; max-height: 0; overflow: hidden; transition: max-height .25s ease; }
     nav.main.open { max-height: 320px; margin-top: 14px; }
     nav.main a { padding: 10px 2px; border-bottom: 1px solid var(--line); font-size: .95rem; }
   }
@@ -261,7 +259,6 @@
         <a href="#for-agencies">For Agencies</a>
         <a href="#contact">Contact</a>
       </nav>
-      <a class="btn header-cta" href="#contact">Start a project</a>
     </header>
   </div>
   <section class="hero-reed" id="home">
