@@ -17,7 +17,7 @@ guard durSec > 0 else { print("bad duration for \(videoPath)"); exit(1) }
 let gen = AVAssetImageGenerator(asset: asset)
 gen.appliesPreferredTrackTransform = true
 gen.requestedTimeToleranceBefore = .zero
-gen.requestedTimeToleranceAfter = CMTime(seconds: 1, preferredTimescale: 600)
+gen.requestedTimeToleranceAfter = CMTime(seconds: 0.05, preferredTimescale: 600)  // was 1s: returned frames up to a second late
 
 // Extra args (index 4+) are "tag:fraction" pairs; fall back to a default spread.
 var fractions: [(String, Double)] = []
