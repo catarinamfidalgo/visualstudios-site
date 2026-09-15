@@ -65,10 +65,37 @@ have made the calls and be able to defend them.</p>
 
 <h3>Where it actually goes wrong</h3>
 
-<p><em>[Catarina — this is the section that will carry the post. One or two concrete moments
-from your own timeline: a transcript that mangled Portuguese or Spanish, an AI select that
-chose the wrong take, something a client asked for after a demo. Specifics here are what
-separate this from every other AI-and-creativity article.]</em></p>
+<p>The failures are rarely dramatic. Nothing explodes. It's that the tool is confidently
+slightly wrong, in ways you only catch if you already know what right looks like.</p>
+
+<p><strong>Transcription outside English.</strong> I work in English, Portuguese and Spanish,
+and the gap is obvious. English transcripts come back near-perfect. Portuguese comes back
+readable but wrong in the places that matter — names, industry terms, and anything where a
+speaker switches languages mid-sentence, which in my work happens constantly. It doesn't flag
+uncertainty. It writes a plausible word and moves on. If you cut from the transcript without
+watching, you'll cut a sentence the person didn't say.</p>
+
+<p><strong>Selects that optimise for clarity.</strong> Ask a tool for the best answer to a
+question and it returns the most articulate one. But in a testimonial, the most articulate
+answer is often the most rehearsed, and rehearsed doesn't persuade. The take you want is
+usually the one where somebody pauses, corrects themselves, and then says the true thing. On a
+transcript that looks like the worse option.</p>
+
+<p><strong>Auto-reframe.</strong> Useful for turning a landscape cut into vertical, right up
+until the moment two people are talking and it decides which one matters. It follows movement,
+not meaning, so it will drift off the person listening — and in an interview, the reaction is
+frequently the shot.</p>
+
+<p><strong>Noise reduction pushed too far.</strong> It's excellent at removing hum. It is also
+happy to remove the room, and a voice with no room around it sounds like a voice in a box.
+Nobody can say why the video feels cheap; it just does.</p>
+
+<p><strong>Automatic colour matching.</strong> It will make your shots consistent by making
+them average. If the look was deliberate — warm, cool, deliberately flat — average is exactly
+wrong.</p>
+
+<p>None of this makes the tools bad. It makes them tools. Every one of these is fine when
+somebody is watching the output and knows what they're looking for.</p>
 
 <h3>How I use it</h3>
 
