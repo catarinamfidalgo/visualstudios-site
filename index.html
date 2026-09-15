@@ -62,7 +62,16 @@
   .center p.copy { margin-left: auto; margin-right: auto; }
 
   .hero-reed { position: relative; background: var(--ink); color: #fff; min-height: 86vh; display: flex; align-items: flex-end; overflow: hidden; }
-  .hero-reed-media { position: absolute; inset: 0; background: radial-gradient(120% 90% at 72% 18%, rgba(169,139,239,.20), rgba(27,26,31,0) 55%), linear-gradient(180deg, #26232e 0%, #131217 100%); }
+  /* The hero holds a wall of frames from the portfolio, sunk into the gradient:
+     the darkening layers sit on top of the image, heaviest where the headline is. */
+  .hero-reed-media { position: absolute; inset: 0;
+    background:
+      linear-gradient(100deg, rgba(19,18,23,.97) 0%, rgba(19,18,23,.93) 30%, rgba(19,18,23,.62) 62%, rgba(19,18,23,.78) 100%),
+      linear-gradient(0deg, rgba(19,18,23,.95) 0%, rgba(19,18,23,.25) 45%, rgba(19,18,23,.55) 100%),
+      radial-gradient(120% 90% at 72% 18%, rgba(169,139,239,.28), rgba(27,26,31,0) 55%),
+      url('assets/img/hero-collage.jpg') center/cover no-repeat,
+      linear-gradient(180deg, #26232e 0%, #131217 100%);
+  }
   .hero-reed-inner { position: relative; z-index: 2; width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 40px 9vh; }
   .hero-title { font-size: clamp(3rem,9.5vw,7.4rem); font-weight: 900; line-height: .9; letter-spacing: -.025em; text-transform: uppercase; margin: 0 0 30px; color: #fff; }
   .hero-title span { color: var(--lav-bright); }
