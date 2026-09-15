@@ -35,17 +35,17 @@ func clip(_ x: Double, _ y: Double, _ w: Double, _ h: Double, _ c: NSColor) {
 }
 
 // three video tracks
-var trackY = H - 96.0
+var trackY = H - 84.0
 for t in 0..<4 {
     var cx = 20.0 + rnd() * 40
     while cx < W - 30 {
-        let cw = 70 + rnd() * 190
+        let cw = 85 + rnd() * 215
         let c = (rnd() > 0.78) ? lav.withAlphaComponent(0.85)
               : (rnd() > 0.6 ? slate.blended(withFraction: 0.25, of: lavBright)! : slate)
-        clip(cx, trackY, min(cw, W - 30 - cx), 70, c)
+        clip(cx, trackY, min(cw, W - 30 - cx), 80, c)
         cx += cw + 6 + rnd() * 26
     }
-    trackY -= 80
+    trackY -= 88
     _ = t
 }
 
@@ -54,17 +54,17 @@ for _ in 0..<3 {
     var cx = 20.0 + rnd() * 60
     while cx < W - 30 {
         let cw = min(110 + rnd() * 240, W - 30 - cx)
-        clip(cx, trackY, cw, 56, NSColor(srgbRed: 0.16, green: 0.20, blue: 0.24, alpha: 1))
+        clip(cx, trackY, cw, 58, NSColor(srgbRed: 0.16, green: 0.20, blue: 0.24, alpha: 1))
         NSColor(srgbRed: 0.55, green: 0.75, blue: 0.80, alpha: 0.55).setFill()
         var wx = cx + 4
         while wx < cx + cw - 4 {
-            let a = (2 + rnd() * 17)
-            NSRect(x: wx, y: trackY + 28 - a / 2, width: 1.6, height: a).fill()
+            let a = (2 + rnd() * 21)
+            NSRect(x: wx, y: trackY + 29 - a / 2, width: 1.8, height: a).fill()
             wx += 3.2
         }
         cx += cw + 8 + rnd() * 30
     }
-    trackY -= 66
+    trackY -= 68
 }
 
 // playhead
