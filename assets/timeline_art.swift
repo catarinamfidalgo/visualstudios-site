@@ -4,12 +4,27 @@ import Foundation
 // Renders an NLE timeline for the hero: video tracks whose clips carry real
 // frames from the portfolio, the way Final Cut shows thumbnails, over audio
 // tracks with waveforms. Deterministic — same output every run.
-// Usage: timeline_art <framesDir>
+// Usage: timeline_art [framesDir]
 let args = CommandLine.arguments
-let framesDir = args.count > 1 ? args[1] : ""
+let framesDir = args.count > 1 ? args[1] : "assets/img/cover"
+// Hand-picked in-video stills: cinematic, product and lifestyle footage only.
+// These deliberately avoid every project's portfolio cover so the hero does
+// not repeat the grid below it, and avoid title cards/charts/talking heads.
+let frameNames = [
+    "moroccanoil-a.jpg", "espanita-c.jpg", "ballet-1.jpg",
+    "peterjackson-15-b.jpg", "snowlodge-alt-balloons.jpg", "desserted-orange-a.jpg",
+    "volkswagen-a.jpg", "smallpond-reel-3.jpg", "coca-cola-d.jpg",
+    "espanita-e.jpg", "perfectjeans-c.jpg", "ballet-dancer.jpg",
+    "snowlodge-b.jpg", "moroccanoil-c.jpg", "peterjackson-30-a.jpg",
+    "desserted-b.jpg", "coca-cola-e.jpg", "espanita-b.jpg",
+    "ballet-2.jpg", "volkswagen-c.jpg", "smallpond-reel-4.jpg",
+    "snowlodge-c.jpg", "desserted-kransekake-a.jpg", "coca-cola-h.jpg",
+    "espanita-f.jpg", "peterjackson-30-b.jpg", "snowlodge-d.jpg",
+    "espanita-square.jpg", "espanita-a.jpg"
+]
 var frames: [CGImage] = []
-if !framesDir.isEmpty, let names = try? FileManager.default.contentsOfDirectory(atPath: framesDir) {
-    for n in names.filter({ $0.hasSuffix(".jpg") }).sorted() {
+if !framesDir.isEmpty {
+    for n in frameNames {
         if let img = NSImage(contentsOfFile: (framesDir as NSString).appendingPathComponent(n)),
            let cg = img.cgImage(forProposedRect: nil, context: nil, hints: nil) { frames.append(cg) }
     }
@@ -53,8 +68,9 @@ func clipWithFrame(_ x: Double, _ y: Double, _ w: Double, _ h: Double) {
             NSGraphicsContext.current?.restoreGraphicsState()
             tx += tw
         }
-        // knock the frames back so the headline stays dominant
-        NSColor(srgbRed: 0.13, green: 0.12, blue: 0.16, alpha: 0.34).setFill()
+        // Tint and darken the footage so it reads as content inside the NLE
+        // clips, while the timeline structure and hero headline stay dominant.
+        NSColor(srgbRed: 0.13, green: 0.12, blue: 0.16, alpha: 0.48).setFill()
         NSRect(x: x, y: y, width: w, height: h).fill()
     }
     NSGraphicsContext.current?.restoreGraphicsState()
