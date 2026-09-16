@@ -53,14 +53,14 @@
         <a class="btn btn--ghost-light" href="#portfolio">Ver portfólio</a>
       </div>
     </div>
-    <a class="scroll-cue" href="#portfolio" aria-label="Descer to work">Descer</a>
+    <a class="scroll-cue" href="#portfolio" aria-label="Scroll to work">Descer</a>
   </section>
   <div class="container section" id="portfolio" style="padding-bottom:36px;">
     <h2 class="eyebrow">Portfólio</h2>
     <div class="portfolio-count" id="portfolioCount"></div>
     <div class="filter-bar" id="filterBar"></div>
   </div>
-  <div class="portfolio-band"><div class="projeto-grid" id="projetoGrid"></div></div>
+  <div class="portfolio-band"><div class="project-grid" id="projectGrid"></div></div>
   <div class="container services section">
     <h2 class="eyebrow">Serviços</h2>
     <div class="service-list">
@@ -188,8 +188,8 @@
         <div class="modal-title" id="modalTitle"></div>
         <div class="modal-media-caption" id="modalMediaCaption"></div>
         <div class="modal-desc" id="modalDesc"></div>
-        <div class="modal-meta" id="modalTarefasRow"><span class="modal-meta-label">Tarefas</span><span id="modalTarefas"></span></div>
-        <div class="modal-meta" id="modalSetorRow"><span class="modal-meta-label">Setor</span><span class="modal-tags" id="modalSetor"></span></div>
+        <div class="modal-meta" id="modalTasksRow"><span class="modal-meta-label">Tarefas</span><span id="modalTasks"></span></div>
+        <div class="modal-meta" id="modalIndustryRow"><span class="modal-meta-label">Setor</span><span class="modal-tags" id="modalIndustry"></span></div>
       </div>
     </div>
   </div>
@@ -198,17 +198,17 @@
   const PROJECTS = [
     {brand:'Coca-Cola', types:['Vídeo Corporativo / Promocional'], desc:'Vídeo corporativo para uso interno, com materiais da Coca-Cola Europacific e imagens de arquivo licenciadas.', tasks:'Montagem, Tratamento de cor, Títulos animados, Motion graphics, Música licenciada, Correção de cor, Imagens de arquivo licenciadas', industries:['Alimentação e bebidas', 'Produção e fornecimento'], poster:'../assets/img/cover/coca-cola-start2.jpg', video:'../assets/video/coca-cola.mp4', yt:'KyVg-T2lDYI'},
     {brand:'UNESCO', types:['Vídeo Corporativo / Promocional'], desc:'Vídeo corporativo para uso interno, com voz-off e imagens de arquivo licenciadas, para a UNESCO e o seu programa O3 (Our Rights, Our Lives, Our Future).', tasks:'Montagem, Titulagem animada, Mistura de som, Mistura de áudio, Sound design, Tratamento de cor, Motion graphics, Imagens de arquivo e música licenciadas', industries:['Educação médica e da saúde', 'Educação de jovens', 'Investigação', 'Educação de infância', 'Medicina e farmacêutica', 'Sem fins lucrativos'], poster:'../assets/img/cover/unesco-g.jpg', video:'../assets/video/unesco.mp4', yt:'Xpgb7cmdmZc'},
-    {brand:'FAT Brands Inc.', types:['Vídeo de Testemunho', 'Reel de Destaques'], desc:'Entrevistas com master franchisados da FAT Brands, montadas num reel narrativo de destaques. A FAT Brands detém a Fatburger, a Johnny Rockets, a Round Table Pizza e a Marble Slab Creamery, entre outras.', tasks:'Montagem, Correção de cor, Tratamento de cor, Motion graphics, Música licenciada, Mistura de som', industries:['Alimentação e bebidas', 'Fast food', 'Indústria alimentar'], media:[{video:'../assets/video/fatbrands-highlight-reel.mp4', yt:'IHt6nNLI1rc', gif:'../assets/img/cover/fatbrands-a.jpg', caption:'Reel de Destaques'}, {video:'../assets/video/fatbrands-lloyd.mp4', yt:'iKlBQiGdXos', gif:'../assets/img/cover/fatbrands-lloyd-a.jpg', caption:'Lloyd Sugarman — Johnny Rockets'}, {video:'../assets/video/fatbrands-lorena.mp4', yt:'0eKt1Z4P1fM', gif:'../assets/img/cover/fatbrands-lorena-a.jpg', caption:'Lorena Jasso — Fatburger'}, {video:'../assets/video/fatbrands-michael.mp4', yt:'sKvfKT6ZHWE', gif:'../assets/img/cover/fatbrands-michael-a.jpg', caption:'Michael Bravo — Round Table Pizza'}], poster:'../assets/img/cover/fatbrands-a.jpg', video:''},
+    {brand:'FAT Brands Inc.', types:['Vídeo de Testemunho', 'Reel de Destaques'], desc:'Entrevistas com master franchisados da FAT Brands, montadas num reel narrativo de destaques. A FAT Brands detém a Fatburger, a Johnny Rockets, a Round Table Pizza e a Marble Slab Creamery, entre outras.', tasks:'Montagem, Correção de cor, Tratamento de cor, Motion graphics, Música licenciada, Mistura de som', industries:['Alimentação e bebidas', 'Fast food', 'Indústria alimentar'], media:[{video:'../assets/video/fatbrands-highlight-reel.mp4', yt:'IHt6nNLI1rc', gif:'../assets/img/cover/fatbrands-a.jpg', caption:'Highlight Reel'}, {video:'../assets/video/fatbrands-lloyd.mp4', yt:'iKlBQiGdXos', gif:'../assets/img/cover/fatbrands-lloyd-a.jpg', caption:'Lloyd Sugarman — Johnny Rockets'}, {video:'../assets/video/fatbrands-lorena.mp4', yt:'0eKt1Z4P1fM', gif:'../assets/img/cover/fatbrands-lorena-a.jpg', caption:'Lorena Jasso — Fatburger'}, {video:'../assets/video/fatbrands-michael.mp4', yt:'sKvfKT6ZHWE', gif:'../assets/img/cover/fatbrands-michael-a.jpg', caption:'Michael Bravo — Round Table Pizza'}], poster:'../assets/img/cover/fatbrands-a.jpg', video:''},
     {brand:'Moroccanoil', types:['Vídeo para Redes Sociais'], desc:'Vídeos curtos para as redes sociais da Moroccanoil.', tasks:'Montagem, Música licenciada, Tratamento de cor, Correção de cor', industries:['Beleza e cosmética'], media:[{video:'../assets/video/moroccanoil-landscape.mp4', yt:'EA2bhdZzcW8', gif:'../assets/img/cover/moroccanoil-b.jpg', caption:'Landscape'}, {video:'../assets/video/moroccanoil-vertical-1.mp4', yt:'ooHGWtSeolk', gif:'../assets/img/cover/moroccanoil-vertical-1.jpg', caption:'Vertical 1'}, {video:'../assets/video/moroccanoil-vertical-2.mp4', yt:'KOMhQNAM-ao', gif:'../assets/img/cover/moroccanoil-vertical-2.jpg', caption:'Vertical 2'}], poster:'../assets/img/cover/moroccanoil-b.jpg', video:''},
-    {brand:'Espanita Tequila', types:['Filme de Marca', 'Vídeo para Redes Sociais'], desc:'Campanha para a Espanita Tequila, uma tequila feita em colaboração com o Pitbull. Montei também uma versão curta para redes sociais.', tasks:'Montagem, Tratamento de cor, Motion graphics, Titulagem animada, Música licenciada, Mistura de som e sound design', industries:['Alimentação e bebidas', 'Produção e fornecimento'], media:[{video:'../assets/video/espanita.mp4', yt:'av_2LmDM-Ro', gif:'../assets/img/cover/espanita-g.jpg', caption:'Filme de Marca'}, {video:'../assets/video/espanita-square.mp4', yt:'sUgaKBNmMSE', gif:'../assets/img/cover/espanita-square.jpg', caption:'Social Ad'}], poster:'../assets/img/cover/espanita-g.jpg', video:''},
+    {brand:'Espanita Tequila', types:['Filme de Marca', 'Vídeo para Redes Sociais'], desc:'Campanha para a Espanita Tequila, uma tequila feita em colaboração com o Pitbull. Montei também uma versão curta para redes sociais.', tasks:'Montagem, Tratamento de cor, Motion graphics, Titulagem animada, Música licenciada, Mistura de som e sound design', industries:['Alimentação e bebidas', 'Produção e fornecimento'], media:[{video:'../assets/video/espanita.mp4', yt:'av_2LmDM-Ro', gif:'../assets/img/cover/espanita-g.jpg', caption:'Brand Film'}, {video:'../assets/video/espanita-square.mp4', yt:'sUgaKBNmMSE', gif:'../assets/img/cover/espanita-square.jpg', caption:'Social Ad'}], poster:'../assets/img/cover/espanita-g.jpg', video:''},
     {brand:'Volkswagen', types:['Anúncio de Televisão'], desc:'Anúncio de televisão de 30 segundos para o concessionário Hawk Volkswagen de Monroeville.', tasks:'Montagem, Tratamento de cor, Motion graphics, Mistura de som', industries:['Concessionário automóvel'], poster:'../assets/img/cover/volkswagen-b.jpg', video:'../assets/video/volkswagen.mp4', yt:'9LkTT-jUBvM'},
     {brand:'99Bitcoins', types:['Vídeo para YouTube'], desc:'Vídeos educativos de formato longo para o 99Bitcoins, um canal de YouTube que explica cripto a principiantes — 710 mil subscritores e mais de 50 milhões de visualizações. Mostram-se aqui duas amostras.', tasks:'Montagem, Tratamento de cor, Motion graphics, Elementos animados, Imagens de arquivo licenciadas, Mistura de som', industries:['Cripto e blockchain', 'Fintech', 'Educação', 'Media e entretenimento'], media:[{video:'../assets/video/99bitcoins-saudi-arabia.mp4', yt:'_DTf8Y5yTrQ', gif:'../assets/img/cover/99bitcoins-saudi.jpg', caption:'Saudi Arabia'}, {video:'../assets/video/99bitcoins-idiocracy.mp4', yt:'BcoyqvbQNTo', gif:'../assets/img/cover/99bitcoins-idiocracy.jpg', caption:'Idiocracy Predicted This'}], poster:'../assets/img/cover/99bitcoins-idiocracy.jpg', video:''},
     {brand:'Binance', types:['Vídeo Corporativo / Promocional'], desc:'Vídeo corporativo com imagens de arquivo licenciadas, voz-off e motion graphics para a Binance Charity e o projeto \'Crypto Against Covid\'.', tasks:'Montagem, Motion graphics, Imagens de arquivo licenciadas, Texto animado, Mistura de som, Música licenciada', industries:['Fintech', 'Cripto e blockchain'], poster:'../assets/img/cover/binance-logo.jpg', video:'../assets/video/binance.mp4', yt:'zZZ4WLHOm0M'},
     {brand:'Fairmont Hotels', types:['Vídeo para Redes Sociais'], desc:'3 reels curtos para as redes sociais dos hotéis Fairmont.', tasks:'Montagem, Tratamento de cor, Música licenciada', industries:['Viagens e turismo', 'Hotelaria', 'Spa'], media:[{video:'../assets/video/fairmont-1.mp4', yt:'g82dQ0j9Mq0', gif:'../assets/img/cover/fairmont-1.jpg', caption:'Dining & Bar'}, {video:'../assets/video/fairmont-2.mp4', yt:'q8tfmDbYOW0', gif:'../assets/img/cover/fairmont-2.jpg', caption:'Work & Stay'}, {video:'../assets/video/fairmont-3.mp4', yt:'UIxje0GvOHU', gif:'../assets/img/cover/fairmont-3.jpg', caption:'The Getaway'}], poster:'../assets/img/cover/fairmont-3.jpg', video:''},
     {brand:'Danone', types:['Vídeo de Testemunho', 'Vídeo para Redes Sociais'], desc:'Série de vídeos para redes sociais, em horizontal e vertical, com texto e elementos animados para o Danone Nutricia Campus — uma plataforma educativa sem fins lucrativos para profissionais de saúde.', tasks:'Montagem, Tratamento de cor, Motion graphics, Elementos animados, Títulos animados, Mistura de áudio', industries:['Nutrição', 'Educação médica e da saúde', 'Sem fins lucrativos'], media:[{video:'../assets/video/danone-meet-the-board.mp4', yt:'Dx5aTCvJCfU', gif:'../assets/img/cover/danone-board.jpg', caption:'Meet the DNC Board'}, {video:'../assets/video/danone-interview.mp4', yt:'ocTZv83YgkE', gif:'../assets/img/cover/danone-a.jpg', caption:'Interview'}], poster:'../assets/img/cover/danone-a.jpg', video:''},
-    {brand:'The Washington Ballet', types:['Vídeo para Redes Sociais', 'Filme de Marca'], desc:'Campanha completa de promoção da temporada 22/23 do Washington Ballet, montada ao ritmo de música clássica.', tasks:'Montagem, Tratamento de cor, Motion graphics, Títulos animados, Música licenciada', industries:['Dança', 'Belas-artes', 'Media e entretenimento', 'Eventos e celebrações'], media:[{video:'../assets/video/ballet-1.mp4', yt:'UZDffzDmak0', gif:'../assets/img/cover/ballet-dancer.jpg', caption:'Season Teaser'}, {video:'../assets/video/ballet-2.mp4', yt:'URuqhfZa29U', gif:'../assets/img/cover/ballet-2.jpg', caption:'Program Highlights'}, {video:'../assets/video/ballet-3.mp4', yt:'_D89qh7wzOI', gif:'../assets/img/cover/ballet-3.jpg', caption:'Filme de Marca'}], poster:'../assets/img/cover/ballet-highlights.jpg', video:''},
+    {brand:'The Washington Ballet', types:['Vídeo para Redes Sociais', 'Filme de Marca'], desc:'Campanha completa de promoção da temporada 22/23 do Washington Ballet, montada ao ritmo de música clássica.', tasks:'Montagem, Tratamento de cor, Motion graphics, Títulos animados, Música licenciada', industries:['Dança', 'Belas-artes', 'Media e entretenimento', 'Eventos e celebrações'], media:[{video:'../assets/video/ballet-1.mp4', yt:'UZDffzDmak0', gif:'../assets/img/cover/ballet-dancer.jpg', caption:'Season Teaser'}, {video:'../assets/video/ballet-2.mp4', yt:'URuqhfZa29U', gif:'../assets/img/cover/ballet-2.jpg', caption:'Program Highlights'}, {video:'../assets/video/ballet-3.mp4', yt:'_D89qh7wzOI', gif:'../assets/img/cover/ballet-3.jpg', caption:'Brand Film'}], poster:'../assets/img/cover/ballet-highlights.jpg', video:''},
     {brand:'Capgemini', types:['Vídeo Corporativo / Promocional'], desc:'Vídeo promocional corporativo de 60\' com imagens de arquivo e elementos animados para a Capgemini, o grupo de consultoria e serviços tecnológicos.', tasks:'Montagem, Tratamento de cor, Texto e elementos animados, Imagens de arquivo e música licenciadas', industries:['Engenharia', 'Consultoria tecnológica'], poster:'../assets/img/cover/capgemini-g5.jpg', video:'../assets/video/capgemini.mp4', yt:'0Q7gr0dnUgs'},
-    {brand:'KAUST', types:['Vídeo de Testemunho', 'Filme de Marca'], desc:'Entrevistas e um filme de marca sobre o programa SRSI da King Abdullah University of Science and Technology (KAUST).', tasks:'Montagem, Tratamento de cor, Motion graphics, Música licenciada', industries:['Educação', 'Ensino superior', 'Ciência', 'Tecnologia', 'Engenharia', 'Ensino e formação'], media:[{video:'../assets/video/kaust-testimonials.mp4', yt:'6UjyR76R1pI', gif:'../assets/img/cover/kaust-testimonials-bcam.jpg', caption:'Testimonials'}, {video:'../assets/video/kaust-brand.mp4', yt:'JzQz-RWW-hs', gif:'../assets/img/cover/kaust-brand-a.jpg', caption:'Filme de Marca'}], poster:'../assets/img/cover/kaust-testimonials-bcam.jpg', video:''},
+    {brand:'KAUST', types:['Vídeo de Testemunho', 'Filme de Marca'], desc:'Entrevistas e um filme de marca sobre o programa SRSI da King Abdullah University of Science and Technology (KAUST).', tasks:'Montagem, Tratamento de cor, Motion graphics, Música licenciada', industries:['Educação', 'Ensino superior', 'Ciência', 'Tecnologia', 'Engenharia', 'Ensino e formação'], media:[{video:'../assets/video/kaust-testimonials.mp4', yt:'6UjyR76R1pI', gif:'../assets/img/cover/kaust-testimonials-bcam.jpg', caption:'Testimonials'}, {video:'../assets/video/kaust-brand.mp4', yt:'JzQz-RWW-hs', gif:'../assets/img/cover/kaust-brand-a.jpg', caption:'Brand Film'}], poster:'../assets/img/cover/kaust-testimonials-bcam.jpg', video:''},
     {brand:'Litify', types:['Vídeo Corporativo / Promocional'], desc:'Vídeo promocional corporativo e vídeo de evento com motion graphics para a Litify, uma plataforma jurídica criada por advogados para advogados.', tasks:'Montagem, Música licenciada, Motion graphics e animação, Tratamento de cor', industries:['Direito', 'Vídeos de evento', 'Tecnologia', 'Serviços financeiros e empresariais', 'Eventos e celebrações'], poster:'../assets/img/cover/litify-a.jpg', video:'../assets/video/litify.mp4', yt:'dVjTnpmlgzo'},
     {brand:'SmallPond', types:['Vídeo para Redes Sociais'], desc:'Campanha social completa para a SmallPond, uma empresa de viagens de grupo — dois anúncios principais (um horizontal de 30 segundos e uma versão quadrada de 60) e cinco reels verticais para Instagram.', tasks:'Montagem, Tratamento de cor, Música licenciada', industries:['Agência de viagens', 'Hotelaria'], media:[{video:'../assets/video/smallpond-ad-30.mp4', yt:'_JuCCyJqqN4', gif:'../assets/img/cover/smallpond-ad-30.jpg', caption:'30-Second Ad'}, {video:'../assets/video/smallpond-ad-square.mp4', yt:'HQTpNbrsQIo', gif:'../assets/img/cover/smallpond-ad-square.jpg', caption:'Square Ad'}, {video:'../assets/video/smallpond-reel-1.mp4', yt:'KjFBxRp9Zk8', gif:'../assets/img/cover/smallpond-reel-1.jpg', caption:'Reel 1'}, {video:'../assets/video/smallpond-reel-2.mp4', yt:'6OfKYTltP18', gif:'../assets/img/cover/smallpond-reel-2.jpg', caption:'Reel 2'}, {video:'../assets/video/smallpond-reel-3.mp4', yt:'iCNVGUx1LPY', gif:'../assets/img/cover/smallpond-reel-3.jpg', caption:'Reel 3'}, {video:'../assets/video/smallpond-reel-4.mp4', yt:'uZ7mc7lkrh0', gif:'../assets/img/cover/smallpond-reel-4.jpg', caption:'Reel 4'}, {video:'../assets/video/smallpond-reel-5.mp4', yt:'fW2ELtI8NG8', gif:'../assets/img/cover/smallpond-reel-5.jpg', caption:'Reel 5'}], poster:'../assets/img/cover/smallpond-ad-30.jpg', video:''},
     {brand:'Thetaray', types:['Vídeo Corporativo / Promocional', 'Vídeo de Evento'], desc:'Vídeo sem som, com elementos animados, para um ecrã de stand em feira. A ThetaRay desenvolve software de monitorização de transações com IA para bancos e prestadores de pagamentos.', tasks:'Montagem, Tratamento de cor, Legendagem, Motion graphics, Elementos animados', industries:['Fintech', 'Banca', 'Inteligência artificial (IA)'], poster:'../assets/img/cover/thetaray-handwritten.jpg', video:'../assets/video/thetaray.mp4', yt:'HmwgxGv_L1I'},
@@ -217,7 +217,7 @@
     {brand:'The Snow Lodge', types:['Vídeo de Resumo de Evento'], desc:'Vídeo de resumo de evento para redes sociais do The Snow Lodge, um conceito de entretenimento de inverno.', tasks:'Montagem, Tratamento de cor, Correção de cor, Música licenciada, Titulagem', industries:['Comunidade e clubes', 'Discotecas', 'Evento musical', 'Eventos e celebrações', 'Media e entretenimento', 'Hotelaria'], poster:'../assets/img/cover/snowlodge-party.jpg', video:'../assets/video/snowlodge.mp4', yt:'8d4eVcimFTY'},
     {brand:'APEL', types:['Vídeo de Evento'], desc:'Vídeos promocionais de evento com elementos animados, voz-off e imagens de arquivo licenciadas para a APEL (Associação Portuguesa de Editores e Livreiros).', tasks:'Montagem, Tratamento de cor, Elementos animados, Imagens de arquivo e música licenciadas', industries:['Edição de livros', 'Edição de e-books', 'Livros e literatura', 'Educação', 'Sem fins lucrativos'], poster:'../assets/img/cover/apel-r3.jpg', video:'../assets/video/apel.mp4', yt:'1Azi44gVRaI'},
     {brand:'Bianco+Ye', types:['Filme de Marca'], desc:'Vídeo de identidade de marca com títulos animados para a Bianco+Ye, uma agência criativa full-service cofundada por Yerong Xu e Simone Bianconcini.', tasks:'Montagem, Tratamento e correção de cor, Música licenciada, Títulos animados', industries:['Marketing e publicidade', 'Agência de marketing', 'Agência de publicidade', 'Beleza e cosmética', 'Moda e vestuário', 'Agência de design'], poster:'../assets/img/cover/bianco-ye-medium.jpg', video:'../assets/video/bianco-ye.mp4', yt:'soaWskgCh40'},
-    {brand:'Apex Imaging Services', types:['Vídeo Corporativo / Promocional'], desc:'Vídeos corporativos trimestrais para uso interno, com motion graphics, para a Apex Imaging Serviços, sobre resultados e planos para o ano seguinte.', tasks:'Montagem, Tratamento de cor, Música licenciada, Motion graphics, Elementos animados, Mistura de som', industries:['Construção', 'Logística', 'Produção e armazenamento', 'Manutenção e instalação', 'Indústria e armazenamento'], poster:'../assets/img/cover/apex-b.jpg', video:'../assets/video/apex.mp4', yt:'_bUeTzkYoQE'},
+    {brand:'Apex Imaging Services', types:['Vídeo Corporativo / Promocional'], desc:'Vídeos corporativos trimestrais para uso interno, com motion graphics, para a Apex Imaging Services, sobre resultados e planos para o ano seguinte.', tasks:'Montagem, Tratamento de cor, Música licenciada, Motion graphics, Elementos animados, Mistura de som', industries:['Construção', 'Logística', 'Produção e armazenamento', 'Manutenção e instalação', 'Indústria e armazenamento'], poster:'../assets/img/cover/apex-b.jpg', video:'../assets/video/apex.mp4', yt:'_bUeTzkYoQE'},
     {brand:'The AI School', types:['E-Learning / Curso em Vídeo'], desc:'Curso em vídeo de 2 horas com 9 lições, com motion graphics, para a The AI School. Mostram-se aqui apenas duas lições de amostra, não o curso completo.', tasks:'Montagem, Tratamento de cor, Motion graphics, Música licenciada, Títulos animados, Mistura de som', industries:['Tecnologia', 'Educação', 'Inteligência artificial (IA)'], media:[{video:'../assets/video/aischool-lesson-3-3.mp4', yt:'zr5yWm5GbjU', gif:'../assets/img/cover/aischool-a.jpg', caption:'Lesson 3.3'}, {video:'../assets/video/aischool-chapter-4.mp4', yt:'3VJ81H73Lwc', gif:'../assets/img/cover/aischool-chapter4-a.jpg', caption:'Chapter 4 — Best Practices for Different Use Cases'}], poster:'../assets/img/cover/aischool-a.jpg', video:''},
     {brand:'You\'ve Been Desserted', types:['Vídeo para YouTube'], desc:'Vídeos de YouTube com elementos animados para \'You\'ve Been Desserted\', um programa multicâmara apresentado pelo pasteleiro e cake designer Joshua John Russell. Montei cada episódio em estreita colaboração com os produtores, mantendo o timing cómico apertado. Mostram-se aqui três episódios de amostra; foram montados muitos mais.', tasks:'Montagem, Tratamento de cor, Motion graphics, Elementos animados, Música licenciada, Mistura de som, Sound design', industries:['Canal de alimentação e bebidas'], media:[{video:'../assets/video/desserted-dynasty-cake.mp4', yt:'vOvQJjROM8o', gif:'../assets/img/cover/desserted-title.jpg', caption:'Dynasty Cake'}, {video:'../assets/video/desserted-kransekake.mp4', yt:'c8pO07Q5b2A', gif:'../assets/img/cover/desserted-kransekake-a.jpg', caption:'Norwegian Kransekake Wedding Cake'}, {video:'../assets/video/desserted-orange-cake.mp4', yt:'cEg2YxGYBKE', gif:'../assets/img/cover/desserted-orange-a.jpg', caption:'Orange Cake'}], poster:'../assets/img/cover/desserted-title.jpg', video:''},
     {brand:'Perfect Jeans', types:['Anúncio de Televisão', 'Vídeo para Redes Sociais'], desc:'Anúncio para a Perfect Jeans, uma marca dinamarquesa de calças de ganga. Para site, redes sociais e televisão (TV2). O público-alvo são mulheres entre os 35 e os 65 anos e famílias.', tasks:'Montagem, Motion graphics', industries:['Moda e vestuário'], poster:'../assets/img/cover/perfectjeans-b.jpg', video:'../assets/video/perfectjeans.mp4', yt:'jYt2vVWlPqY'},
@@ -271,21 +271,21 @@
     renderFilters();
   }
 
-  // Normalize a projeto's media into a list of {video, gif, caption}.
-  // Single-video projetos fall back to the old poster/video fields.
+  // Normalize a project's media into a list of {video, gif, caption}.
+  // Single-video projects fall back to the old poster/video fields.
   function mediaOf(p) {
     const list = (p.media && p.media.length)
       ? p.media
       : [{ video: p.video || '', gif: p.poster || '', caption: '', yt: p.yt || '' }];
-    // Once any video in a projeto is on YouTube, show only the ones that are.
+    // Once any video in a project is on YouTube, show only the ones that are.
     // This lets uploads happen in batches without the site ever showing a
-    // half-finished projeto.
+    // half-finished project.
     const live = list.filter(m => m.yt);
     return live.length ? live : list;
   }
 
   function renderGrid() {
-    const grid = document.getElementById('projetoGrid');
+    const grid = document.getElementById('projectGrid');
     grid.innerHTML = view.map(i => {
       const p = PROJECTS[i];
       const list = mediaOf(p);
@@ -294,27 +294,27 @@
       const cover = p.poster || lead.gif;
       const alt = (p.brand + ' — ' + p.types[0]).replace(/"/g, '&quot;');
       const inner = cover ? '<img loading="lazy" alt="' + alt + '" src="' + cover + '">' : '';
-      const badge = multi ? '<span class="thumb-badge"><span class="tb-icon">⧉</span>' + list.length + ' Vídeos</span>' : '';
-      return '<div class="projeto-card' + (multi ? ' projeto-card--multi' : '') +
+      const badge = multi ? '<span class="thumb-badge"><span class="tb-icon">⧉</span>' + list.length + ' Videos</span>' : '';
+      return '<div class="project-card' + (multi ? ' project-card--multi' : '') +
         '" role="button" tabindex="0" aria-label="' + alt + '" onclick="openModal(' + i + ')">' +
         '<div class="thumb' + (cover ? '' : ' thumb--empty') + '">' + inner + '</div>' +
         badge +
         '<div class="overlay">' +
           '<div class="cats">' + p.types.map(t => '<span class="cat">' + t + '</span>').join('') + '</div>' +
           '<h3 class="title">' + p.brand + '</h3>' +
-          '<div class="view">Ver projeto →</div>' +
+          '<div class="view">View project →</div>' +
         '</div>' +
       '</div>';
     }).join('');
     const c = document.getElementById('portfolioCount');
-    if (c) c.textContent = view.length + (view.length === 1 ? ' projeto' : ' projetos');
+    if (c) c.textContent = view.length + (view.length === 1 ? ' project' : ' projects');
   }
 
   // Cards are focusable; Enter and Space should open them like a click does.
   document.addEventListener('keydown', function (e) {
     if (e.key !== 'Enter' && e.key !== ' ') return;
     const card = document.activeElement;
-    if (!card || !card.classList || !card.classList.contains('projeto-card')) return;
+    if (!card || !card.classList || !card.classList.contains('project-card')) return;
     e.preventDefault();
     card.click();
   });
@@ -389,13 +389,13 @@
     document.getElementById('modalCat').textContent = p.types.join('  ·  ');
     document.getElementById('modalTitle').textContent = p.brand;
     document.getElementById('modalDesc').textContent = p.desc;
-    document.getElementById('modalTarefas').textContent = p.tasks || '';
-    document.getElementById('modalTarefasRow').style.display = p.tasks ? 'flex' : 'none';
-    const indBox = document.getElementById('modalSetor');
+    document.getElementById('modalTasks').textContent = p.tasks || '';
+    document.getElementById('modalTasksRow').style.display = p.tasks ? 'flex' : 'none';
+    const indBox = document.getElementById('modalIndustry');
     indBox.innerHTML = (p.industries || []).map(ind =>
       '<span class="modal-tag" onclick="filterFromModal(\'' + ind.replace(/'/g, "\\'") + '\')">' + ind + '</span>'
     ).join('');
-    document.getElementById('modalSetorRow').style.display = (p.industries && p.industries.length) ? 'flex' : 'none';
+    document.getElementById('modalIndustryRow').style.display = (p.industries && p.industries.length) ? 'flex' : 'none';
     document.getElementById('modalCounter').textContent = (currentPos + 1) + ' / ' + view.length;
   }
 
@@ -437,13 +437,13 @@
     btn.setAttribute('aria-expanded', open ? 'true' : 'false');
   }
   document.getElementById('siteNav').addEventListener('click', function (e) {
-    if (e.target.tagNome === 'A') {
+    if (e.target.tagName === 'A') {
       this.classList.remove('open');
       document.querySelector('.nav-toggle').setAttribute('aria-expanded', 'false');
     }
   });
 
-  // --- Descer-spy: highlight the nav link for the section in view ---
+  // --- Scroll-spy: highlight the nav link for the section in view ---
   (function () {
     const links = Array.from(document.querySelectorAll('nav.main a'));
     const map = {};

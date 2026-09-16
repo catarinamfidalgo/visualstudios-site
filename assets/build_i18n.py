@@ -59,25 +59,50 @@ def build(lang, path):
     j = s.index("\n  ];", i)
     s = s[:i] + translate_projects(s[i:j], t) + s[j:]
 
-    # 2. interface, services, body copy — longest first so substrings don't
-    #    clobber the longer phrases that contain them.
-    #    Brand names are masked first: "Apex Imaging Services" must not become
-    #    "Apex Imaging Serviços" because the table contains "Services".
-    brands = re.findall(r"brand:'((?:[^'\\]|\\.)*)'", s)
-    masks = {}
-    for n, br in enumerate(sorted(set(brands), key=len, reverse=True)):
-        token = "\x00BRAND%d\x00" % n
-        masks[token] = br
-        s = s.replace("brand:'%s'" % br, "brand:'%s'" % token)
-
+    # 2. Interface copy. Replacing across the whole document corrupts markup —
+    #    "project" turned class="project-grid" into class="projeto-grid" and the
+    #    entire grid lost its styling. So: text nodes only, plus the handful of
+    #    attributes and script literals a visitor actually reads.
     table = {}
-    for d in (t.UI, t.SERVICES, t.COPY, t.TYPES):  # TYPES also appear in the form's <option> list
+    for d in (t.UI, t.SERVICES, t.COPY, t.TYPES):
         table.update(d)
-    for src in sorted(table, key=len, reverse=True):
-        s = s.replace(src, table[src])
+    spanning = {k: v for k, v in table.items() if "<" in k}   # phrases containing markup
+    plain = {k: v for k, v in table.items() if "<" not in k}
 
-    for token, br in masks.items():
-        s = s.replace(token, br)
+    head, script, tail = s, "", ""
+    if "<script>" in s:
+        i = s.index("<script>")
+        head, script = s[:i], s[i:]
+
+    def in_text_nodes(chunk):
+        parts = re.split(r"(<[^>]+>)", chunk)
+        for n, seg in enumerate(parts):
+            if seg.startswith("<"):
+                continue
+            for src in sorted(plain, key=len, reverse=True):
+                if src in seg:
+                    seg = seg.replace(src, plain[src])
+            parts[n] = seg
+        return "".join(parts)
+
+    head = in_text_nodes(head)
+
+    # phrases that contain their own markup are distinctive enough to swap whole
+    for src in sorted(spanning, key=len, reverse=True):
+        head = head.replace(src, spanning[src])
+
+    # visible attribute values
+    for attr in ("placeholder", "aria-label", "alt", "title"):
+        def swap(m, a=attr):
+            v = m.group(2)
+            return m.group(1) + plain.get(v, v) + m.group(3)
+        head = re.sub(r'(' + attr + r'=")([^"]*)(")', swap, head)
+
+    # only the literals the script renders to screen
+    for src in ("Video coming soon", "View project →", "Videos", " projects", " project"):
+        if src in plain:
+            script = script.replace("'" + src + "'", "'" + plain[src] + "'")
+    s = head + script
 
     # 3. metadata
     s = re.sub(r"<title>[^<]*</title>", "<title>%s</title>" % t.META["title"], s)
