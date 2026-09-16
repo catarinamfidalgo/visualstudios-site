@@ -8,7 +8,7 @@ translated versions follow, rather than three files drifting apart.
 """
 import importlib.util, os, re, sys
 
-LANGS = {"pt": "assets/i18n_pt.py"}
+LANGS = {"pt": "assets/i18n_pt.py", "es": "assets/i18n_es.py"}
 
 
 def load(path):
@@ -60,18 +60,30 @@ def build(lang, path):
     s = s[:i] + translate_projects(s[i:j], t) + s[j:]
 
     # 2. interface, services, body copy — longest first so substrings don't
-    #    clobber the longer phrases that contain them
+    #    clobber the longer phrases that contain them.
+    #    Brand names are masked first: "Apex Imaging Services" must not become
+    #    "Apex Imaging Serviços" because the table contains "Services".
+    brands = re.findall(r"brand:'((?:[^'\\]|\\.)*)'", s)
+    masks = {}
+    for n, br in enumerate(sorted(set(brands), key=len, reverse=True)):
+        token = "\x00BRAND%d\x00" % n
+        masks[token] = br
+        s = s.replace("brand:'%s'" % br, "brand:'%s'" % token)
+
     table = {}
     for d in (t.UI, t.SERVICES, t.COPY, t.TYPES):  # TYPES also appear in the form's <option> list
         table.update(d)
     for src in sorted(table, key=len, reverse=True):
         s = s.replace(src, table[src])
 
+    for token, br in masks.items():
+        s = s.replace(token, br)
+
     # 3. metadata
     s = re.sub(r"<title>[^<]*</title>", "<title>%s</title>" % t.META["title"], s)
     s = re.sub(r'(name="description" content=")[^"]*(")', r"\g<1>%s\g<2>" % t.META["description"], s)
     s = re.sub(r'(og:description" content=")[^"]*(")', r"\g<1>%s\g<2>" % t.META["description"], s)
-    s = s.replace('<html lang="en">', '<html lang="%s">' % ("pt-PT" if lang == "pt" else lang))
+    s = s.replace('<html lang="en">', '<html lang="%s">' % {"pt": "pt-PT", "es": "es-ES"}.get(lang, lang))
 
     # 4. paths — the page now lives one directory down
     s = re.sub(r'((?:href|src)=")(assets/)', r"\g<1>../\g<2>", s)
