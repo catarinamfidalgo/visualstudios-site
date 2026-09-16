@@ -249,3 +249,14 @@
   .article .lede { font-size: 1.14rem; line-height: 1.6; color: var(--muted); }
   .article-meta { font-size: .68rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
   .back-link { display: inline-block; margin-top: 40px; font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+
+  /* ---------- Language switcher ---------- */
+  .lang-switch { display: flex; align-items: center; gap: 10px; font-size: .68rem; font-weight: 700;
+    letter-spacing: .12em; text-transform: uppercase; margin-left: auto; margin-right: 18px; align-self: baseline; }
+  .lang-switch a { color: var(--muted); transition: color .15s ease; }
+  .lang-switch a:hover { color: var(--accent); }
+  .lang-current { color: var(--text); }
+  .hero-reed .lang-switch a { color: rgba(255,255,255,.6); }
+  @media (max-width: 720px) {
+    .lang-switch { order: 2; margin-right: 10px; }
+  }
