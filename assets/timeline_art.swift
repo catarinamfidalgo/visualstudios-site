@@ -67,12 +67,6 @@ for _ in 0..<3 {
     trackY -= 68
 }
 
-// playhead
-let px = W * 0.68
-lavBright.withAlphaComponent(0.95).setFill()
-NSRect(x: px, y: 0, width: 2, height: H - 6).fill()
-NSBezierPath(roundedRect: NSRect(x: px - 7, y: H - 26, width: 16, height: 20), xRadius: 2, yRadius: 2).fill()
-
 img.unlockFocus()
 let rep = NSBitmapImageRep(data: img.tiffRepresentation!)!
 try rep.representation(using: .jpeg, properties: [.compressionFactor: 0.82])!
