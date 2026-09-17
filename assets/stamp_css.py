@@ -7,6 +7,19 @@ hero background appeared to vanish. Run after any CSS change.
 """
 import hashlib, re, pathlib
 
+# Stamp the hero image with a hash of its own bytes first: the filename never
+# changes, so without this the browser keeps showing a previous render.
+img = pathlib.Path("assets/img/hero-timeline.jpg")
+if img.exists():
+    ih = hashlib.sha1(img.read_bytes()).hexdigest()[:8]
+    css = pathlib.Path("assets/site.css")
+    t = css.read_text(encoding="utf-8")
+    t2 = re.sub(r"url\('img/hero-timeline\.jpg(\?v=[0-9a-f]+)?'\)",
+                "url('img/hero-timeline.jpg?v=%s')" % ih, t)
+    if t2 != t:
+        css.write_text(t2, encoding="utf-8")
+        print("stamped hero-timeline.jpg?v=%s" % ih)
+
 h = hashlib.sha1(open("assets/site.css", "rb").read()).hexdigest()[:8]
 changed = []
 for p in list(pathlib.Path(".").glob("*.html")) + list(pathlib.Path("blog").rglob("*.html")) \
