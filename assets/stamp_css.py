@@ -22,12 +22,14 @@ if img.exists():
 
 h = hashlib.sha1(open("assets/site.css", "rb").read()).hexdigest()[:8]
 changed = []
-for p in list(pathlib.Path(".").glob("*.html")) + list(pathlib.Path("blog").rglob("*.html")) \
-        + [pathlib.Path("assets/build_blog.py")]:
+for p in list(pathlib.Path(".").rglob("*.html")) + [pathlib.Path("assets/build_blog.py")]:
     if not p.exists():
         continue
     s = p.read_text(encoding="utf-8")
-    new = re.sub(r'(site\.css)(\?v=[0-9a-f]+)?', r'\1?v=' + h, s)
+    # Replace the entire existing query string, including older human-readable
+    # stamps such as ?v=hero3. Matching only hexadecimal hashes left a second
+    # query marker behind (for example ?v=c301a1ee?v=hero3).
+    new = re.sub(r'(site\.css)(?:\?[^"\'\s>]*)?', r'\1?v=' + h, s)
     if new != s:
         p.write_text(new, encoding="utf-8")
         changed.append(str(p))
