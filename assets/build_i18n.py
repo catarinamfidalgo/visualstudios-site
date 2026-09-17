@@ -108,6 +108,12 @@ def build(lang, path):
     s = re.sub(r"<title>[^<]*</title>", "<title>%s</title>" % t.META["title"], s)
     s = re.sub(r'(name="description" content=")[^"]*(")', r"\g<1>%s\g<2>" % t.META["description"], s)
     s = re.sub(r'(og:description" content=")[^"]*(")', r"\g<1>%s\g<2>" % t.META["description"], s)
+    # each language is its own page, not a duplicate of the English one
+    s = s.replace('<link rel="canonical" href="https://catarina.media/">',
+                  '<link rel="canonical" href="https://catarina.media/%s/">' % lang)
+    s = s.replace('<meta property="og:url" content="https://catarina.media/">',
+                  '<meta property="og:url" content="https://catarina.media/%s/">' % lang)
+
     s = s.replace('<html lang="en">', '<html lang="%s">' % {"pt": "pt-PT", "es": "es-ES"}.get(lang, lang))
 
     # 4. paths — the page now lives one directory down

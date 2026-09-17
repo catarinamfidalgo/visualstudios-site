@@ -9,7 +9,7 @@ file, which reads better and is what search engines index.
 """
 import os, re, html
 
-SITE = "https://catarinamfidalgo.github.io/visualstudios-site"
+SITE = "https://catarina.media"
 
 POSTS = [
     {
