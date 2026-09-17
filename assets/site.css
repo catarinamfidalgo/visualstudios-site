@@ -45,7 +45,7 @@
       linear-gradient(100deg, rgba(19,18,23,.93) 0%, rgba(19,18,23,.70) 30%, rgba(19,18,23,.16) 62%, rgba(19,18,23,.30) 100%),
       linear-gradient(0deg, rgba(19,18,23,.90) 0%, rgba(19,18,23,.08) 48%, rgba(19,18,23,.26) 100%),
       radial-gradient(120% 90% at 72% 18%, rgba(169,139,239,.28), rgba(27,26,31,0) 55%),
-      url('img/hero-timeline.jpg?v=2d115c67') center/cover no-repeat,
+      url('img/hero-timeline.jpg?v=c29c5619') center/cover no-repeat,
       linear-gradient(180deg, #26232e 0%, #131217 100%);
   }
   .hero-reed-inner { position: relative; z-index: 2; width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 40px 9vh; }
