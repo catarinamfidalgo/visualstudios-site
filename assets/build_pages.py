@@ -30,7 +30,8 @@ def extract(src):
     head = src[src.index("<head>"): src.index("</head>")]
     body = src[src.index("</head>") + len("</head>"):]
     frag = {}
-    frag["header"] = between(body, r'  <div class="container">\n    <header', r'\n  <section class="hero-reed"')
+    # starts at the language bar, which sits above the masthead
+    frag["header"] = between(body, r'  <div class="lang-bar">', r'\n  <section class="hero-reed"')
     frag["hero"] = between(body, r'  <section class="hero-reed"', r'\n  <div class="container section" id="portfolio"')
     frag["portfolio"] = between(body, r'  <div class="container section" id="portfolio"', r'\n  <div class="container services section"')
     frag["services"] = between(body, r'  <div class="container services section"', r'\n  <div class="container section" id="about"')

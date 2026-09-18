@@ -269,16 +269,6 @@
   .article-meta { font-size: .68rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
   .back-link { display: inline-block; margin-top: 40px; font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
 
-  /* ---------- Language switcher ---------- */
-  .lang-switch { display: flex; align-items: center; gap: 10px; font-size: .68rem; font-weight: 700;
-    letter-spacing: .12em; text-transform: uppercase; margin-left: auto; margin-right: 18px; align-self: baseline; }
-  .lang-switch a { color: var(--muted); transition: color .15s ease; }
-  .lang-switch a:hover { color: var(--accent); }
-  .lang-current { color: var(--text); }
-  .hero-reed .lang-switch a { color: rgba(255,255,255,.6); }
-  @media (max-width: 720px) {
-    .lang-switch { order: 2; margin-right: 10px; }
-  }
 
   /* ---------- Phone: nothing clipped, nothing overflowing ---------- */
   html, body { overflow-x: hidden; }            /* last-resort guard */
@@ -319,14 +309,6 @@
     .lang-switch { font-size: .62rem; gap: 8px; }
   }
 
-  /* the switcher sits above the nav, both right-aligned, rather than floating
-     loose between the wordmark and the menu */
-  .head-right { display: flex; flex-direction: column; align-items: flex-end; gap: 12px; margin-left: auto; }
-  .head-right .lang-switch { margin: 0; }
-  @media (max-width: 720px) {
-    .head-right { flex-basis: 100%; order: 3; align-items: stretch; margin-left: 0; }
-    .head-right .lang-switch { justify-content: flex-end; margin-bottom: 2px; }
-  }
 
   /* ---------- Depth ----------
      One shadow language in three sizes. Nothing on the dark hero, nav or
@@ -351,3 +333,15 @@
   @media (prefers-reduced-motion: reduce) {
     .project-card, .project-card:hover, .btn, .btn:hover { transform: none; }
   }
+
+  /* ---------- Language bar ----------
+     Its own slim strip above the masthead: a utility control, kept out of
+     the way of the navigation rather than competing with it. */
+  .lang-bar { border-bottom: 1px solid var(--line); }
+  .lang-bar .container { display: flex; justify-content: flex-end; }
+  .lang-switch { display: flex; align-items: center; gap: 12px; padding: 9px 0;
+    font-size: .64rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+  .lang-switch a { color: var(--muted); transition: color .15s ease; }
+  .lang-switch a:hover { color: var(--accent); }
+  .lang-current { color: var(--text); }
+  @media (max-width: 400px) { .lang-switch { font-size: .6rem; gap: 10px; } }
