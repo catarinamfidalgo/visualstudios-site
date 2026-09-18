@@ -40,14 +40,25 @@
   .hero-reed { position: relative; background: var(--ink); color: #fff; min-height: 86vh; display: flex; align-items: flex-end; overflow: hidden; }
   /* The hero holds a wall of frames from the portfolio, sunk into the gradient:
      the darkening layers sit on top of the image, heaviest where the headline is. */
-  .hero-reed-media { position: absolute; inset: 0;
+  /* The timeline sits in ::before so it can move without dragging the
+     gradients with it; the darkening layers sit still in ::after. The strip is
+     twice the width and repeats, so translating it half way loops seamlessly. */
+  .hero-reed-media { position: absolute; inset: 0; overflow: hidden; background: linear-gradient(180deg, #26232e 0%, #131217 100%); }
+  .hero-reed-media::before {
+    content: ''; position: absolute; top: 0; bottom: 0; left: 0; width: 200%;
+    background: url('img/hero-timeline.jpg?v=2aa48c37') repeat-x; background-size: auto 100%;
+    animation: timeline-drift 140s linear infinite;
+  }
+  .hero-reed-media::after {
+    content: ''; position: absolute; inset: 0;
     background:
       linear-gradient(100deg, rgba(19,18,23,.93) 0%, rgba(19,18,23,.70) 30%, rgba(19,18,23,.16) 62%, rgba(19,18,23,.30) 100%),
       linear-gradient(0deg, rgba(19,18,23,.90) 0%, rgba(19,18,23,.08) 48%, rgba(19,18,23,.26) 100%),
-      radial-gradient(120% 90% at 72% 18%, rgba(169,139,239,.28), rgba(27,26,31,0) 55%),
-      url('img/hero-timeline.jpg?v=2aa48c37') center/cover no-repeat,
-      linear-gradient(180deg, #26232e 0%, #131217 100%);
+      radial-gradient(120% 90% at 72% 18%, rgba(169,139,239,.28), rgba(27,26,31,0) 55%);
   }
+  @keyframes timeline-drift { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) { .hero-reed-media::before { animation: none; } }
+
   .hero-reed-inner { position: relative; z-index: 2; width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 40px 9vh; }
   .hero-title { font-size: clamp(3rem,9.5vw,7.4rem); font-weight: 900; line-height: .9; letter-spacing: -.025em; text-transform: uppercase; margin: 0 0 30px; color: #fff; }
   .hero-title span { color: var(--lav-bright); }
@@ -59,7 +70,7 @@
   @media (max-width: 720px) { .scroll-cue { display: none; } .hero-reed-inner { padding: 0 24px 12vh; } }
 
   .about-wrap { display: flex; gap: 44px; align-items: center; flex-wrap: wrap; }
-  .about-photo { flex: 0 0 210px; width: 210px; height: 210px; border-radius: 50%; overflow: hidden; box-shadow: 0 14px 34px rgba(27,26,31,.14); }
+  .about-photo { flex: 0 0 210px; width: 210px; height: 210px; border-radius: 50%; overflow: hidden; box-shadow: 0 22px 48px rgba(19,18,23,.34), 0 4px 12px rgba(19,18,23,.18); }
   .about-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
   .about-text { flex: 1; min-width: 260px; }
 
@@ -74,6 +85,8 @@
   .project-card { position: relative; aspect-ratio: 4/3; overflow: hidden; cursor: pointer; background: #201e26; }
   .project-card .thumb { position: absolute; inset: 0; margin: 0; }
   .project-card .thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+  /* a light wash over every cover, so the type and tags sit clear of the image */
+  .project-card .thumb::after { content: ''; position: absolute; inset: 0; background: rgba(19,18,23,.20); pointer-events: none; }
   .project-card:hover .thumb img { transform: scale(1.05); }
   .project-card .thumb--empty { background: linear-gradient(150deg, #2b2833, #17151d); }
   .project-card .overlay { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start; padding: 22px; background: linear-gradient(to top, rgba(14,12,19,.85) 0%, rgba(14,12,19,.12) 55%, rgba(14,12,19,0) 100%); }
@@ -259,4 +272,43 @@
   .hero-reed .lang-switch a { color: rgba(255,255,255,.6); }
   @media (max-width: 720px) {
     .lang-switch { order: 2; margin-right: 10px; }
+  }
+
+  /* ---------- Phone: nothing clipped, nothing overflowing ---------- */
+  html, body { overflow-x: hidden; }            /* last-resort guard */
+  img, video, iframe { max-width: 100%; }
+
+  /* long client names, tags and industry labels must wrap rather than
+     push their container wider than the screen */
+  .project-card .title, .modal-title, .post-title, h1, h2, h3 { overflow-wrap: anywhere; }
+  .cat, .modal-tag, .filter-chip { overflow-wrap: anywhere; }
+  .cats, .filter-bar, .modal-tags, .btn-row, header.site, .foot-cta { min-width: 0; }
+
+  @media (max-width: 640px) {
+    /* the hero line has to fit "IN THE EDIT" on one line at 390pt */
+    .hero-title { font-size: clamp(2.6rem, 12vw, 7.4rem); }
+    .hero-reed-inner { padding: 0 20px 10vh; }
+
+    .project-card .title { font-size: 1.12rem; }
+    .project-card .overlay { padding: 16px; }
+    .cat { font-size: .54rem; padding: .45em .6em; }
+
+    /* the modal took the container's desktop padding into a 390pt screen */
+    .modal-overlay { padding: 0; }
+    .modal-box { max-width: 100%; max-height: 100%; border-radius: 0; }
+    .modal-info { padding: 18px 16px 22px; }
+    .modal-thumbs { padding: 12px 16px 0; }
+    .modal-meta { flex-wrap: wrap; }
+
+    .contact-form { max-width: 100%; }
+    footer.site .container { gap: 22px; }
+    .foot-cta { align-items: flex-start; }
+    .about-photo { flex: 0 0 160px; width: 160px; height: 160px; }
+  }
+
+  @media (max-width: 400px) {
+    .container { padding: 0 16px; }
+    .hero-title { font-size: clamp(2.3rem, 11.5vw, 7.4rem); }
+    .brand { font-size: 1.1rem; }
+    .lang-switch { font-size: .62rem; gap: 8px; }
   }
