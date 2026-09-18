@@ -352,3 +352,14 @@
      glyph of both sit on exactly the same line. */
   nav.main a { margin-right: -.18em; }
   .lang-switch { margin-right: -.14em; }
+
+  /* The agency cards were locked to three columns at every width, so on a
+     phone the third ran off the screen. */
+  @media (max-width: 900px) { .agency-grid { grid-template-columns: repeat(2,1fr); gap: 20px; } }
+  @media (max-width: 640px) { .agency-grid { grid-template-columns: 1fr; gap: 16px; margin-top: 30px; } }
+
+  /* The portfolio began almost flush against the dark hero; it needs room to
+     breathe where the two meet. */
+  .hero-reed + .container.section { padding-top: 84px; }
+  @media (max-width: 1024px) { .hero-reed + .container.section { padding-top: 68px; } }
+  @media (max-width: 640px)  { .hero-reed + .container.section { padding-top: 56px; } }
