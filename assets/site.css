@@ -348,10 +348,6 @@
   .btn:hover { box-shadow: var(--sh-md); transform: translateY(-1px); }
   .btn--ghost, .btn--ghost-light, .btn--ghost:hover, .btn--ghost-light:hover { box-shadow: none; transform: none; }
 
-  /* agency cards read as objects rather than outlines */
-  .agency-card { box-shadow: var(--sh-sm); transition: box-shadow .2s ease; }
-  .agency-card:hover { box-shadow: var(--sh-md); }
-
   @media (prefers-reduced-motion: reduce) {
     .project-card, .project-card:hover, .btn, .btn:hover { transform: none; }
   }
