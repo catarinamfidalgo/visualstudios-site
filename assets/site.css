@@ -345,3 +345,10 @@
   .lang-switch a:hover { color: var(--accent); }
   .lang-current { color: var(--text); }
   @media (max-width: 400px) { .lang-switch { font-size: .6rem; gap: 10px; } }
+
+  /* Uppercase tracking adds space after the final letter, so right-aligned
+     text stops short of the margin — by a different amount in the nav than in
+     the language bar. Pulling each back by its own tracking makes the last
+     glyph of both sit on exactly the same line. */
+  nav.main a { margin-right: -.18em; }
+  .lang-switch { margin-right: -.14em; }
