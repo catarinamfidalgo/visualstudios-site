@@ -26,27 +26,30 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/site.css?v=0a0b31a3">
+<link rel="stylesheet" href="../assets/site.css?v=e8fec8f7">
 </head>
 <body>
   <div class="container">
     <header class="site">
       <div class="brand">Catarina <i>Fidalgo</i></div>
+
+      <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="siteNav" onclick="toggleNav(this)"><span></span><span></span><span></span></button>
+      <div class="head-right">
       <div class="lang-switch" aria-label="Language">
         <span class="lang-current" aria-current="true">EN</span>
         <a href="../pt/services/">PT</a>
         <a href="../es/services/">ES</a>
       </div>
-      <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="siteNav" onclick="toggleNav(this)"><span></span><span></span><span></span></button>
       <nav class="main" id="siteNav">
         <a href="../">Home</a>
-        <a href="../work/">Portfolio</a>
+        <a href="../#portfolio">Portfolio</a>
         <a href="../services/" class="active">Services</a>
         <a href="../about/">About</a>
         <a href="../agencies/">For Agencies</a>
         <a href="../blog/">Blog</a>
         <a href="../contact/">Contact</a>
       </nav>
+      </div>
     </header>
   </div>  <div class="container services section">
     <h2 class="eyebrow">Services</h2>

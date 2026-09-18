@@ -45,8 +45,7 @@ def extract(src):
 
 
 PAGES = [
-    ("",          "Video Editor & Post-Production", ["hero", "featured"],  True),
-    ("work",      "Portfolio",                      ["portfolio"],          True),
+    ("",          "Video Editor & Post-Production", ["hero", "portfolio"], True),
     ("services",  "Services",                       ["services"],           False),
     ("about",     "About",                          ["about"],              False),
     ("agencies",  "For Agencies",                   ["agencies"],           False),
@@ -69,13 +68,15 @@ def depth_fix(html, depth, slug=""):
 
 def nav_for(slug, depth):
     up = "../" * depth if depth else ""
-    items = [("", "Home"), ("work/", "Portfolio"), ("services/", "Services"),
+    items = [("", "Home"), ("#portfolio", "Portfolio"), ("services/", "Services"),
              ("about/", "About"), ("agencies/", "For Agencies"),
              ("blog/", "Blog"), ("contact/", "Contact")]
     out = []
     for href, label in items:
         cur = (href.rstrip("/") == slug)
-        out.append('        <a href="%s%s"%s>%s</a>' % (up, href, ' class="active"' if cur else "", label))
+        # the portfolio lives on the homepage, so link to its anchor
+        target = (up + "#portfolio") if href == "#portfolio" and slug else ("#portfolio" if href == "#portfolio" else up + href)
+        out.append('        <a href="%s"%s>%s</a>' % (target, ' class="active"' if cur else "", label))
     return "\n".join(out)
 
 
@@ -83,20 +84,11 @@ def build():
     src = SRC.read_text(encoding="utf-8")
     f = extract(src)
 
-    # the homepage shows a handful of projects, with the rest a click away
-    featured = f["portfolio"].replace('id="portfolio"', 'id="featured"')
-    featured = re.sub(r'<div class="filter-bar" id="filterBar"></div>', "", featured)
-    featured = featured.replace('<h2 class="eyebrow">Portfolio</h2>',
-                                '<h2 class="eyebrow">Selected work</h2>')
-
     for slug, title, parts, needs_js in PAGES:
         depth = 1 if slug else 0
         chunks = []
         for p in parts:
             chunks.append(featured if p == "featured" else f[p])
-        if slug == "":
-            chunks.append('  <div class="container section center">\n'
-                          '    <a class="btn" href="work/">View the full portfolio</a>\n  </div>')
 
         head = f["head"]
         head = re.sub(r"<title>[^<]*</title>",

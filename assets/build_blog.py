@@ -134,7 +134,7 @@ PAGE = """<!DOCTYPE html>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{root}assets/site.css?v=0a0b31a3">
+<link rel="stylesheet" href="{root}assets/site.css?v=e8fec8f7">
 </head>
 <body>
 {header}
@@ -150,7 +150,7 @@ def header(root):
       <div class="brand"><a href="{root}">Catarina <i>Fidalgo</i></a></div>
       <nav class="main" id="siteNav">
         <a href="{root}">Home</a>
-        <a href="{root}work/">Portfolio</a>
+        <a href="{root}#portfolio">Portfolio</a>
         <a href="{root}services/">Services</a>
         <a href="{root}about/">About</a>
         <a href="{root}agencies/">For Agencies</a>
