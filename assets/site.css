@@ -1,5 +1,8 @@
 :root {
     --bg:#faf9fc; --text:#1b1a1f; --muted:#6b6976; --accent:#7259c4; --onaccent:#ffffff;
+    --sh-sm: 0 2px 6px rgba(19,18,23,.16);
+    --sh-md: 0 12px 28px rgba(19,18,23,.16), 0 3px 8px rgba(19,18,23,.10);
+    --sh-lg: 0 34px 80px rgba(19,18,23,.46), 0 10px 24px rgba(19,18,23,.26);
     --lav:#ece6fa; --lav-bright:#a98bef; --ink:#1b1a1f; --line:rgba(27,26,31,.16); --radius:2px;
   }
   * { box-sizing: border-box; }
@@ -323,4 +326,32 @@
   @media (max-width: 720px) {
     .head-right { flex-basis: 100%; order: 3; align-items: stretch; margin-left: 0; }
     .head-right .lang-switch { justify-content: flex-end; margin-bottom: 2px; }
+  }
+
+  /* ---------- Depth ----------
+     One shadow language in three sizes. Nothing on the dark hero, nav or
+     footer — a shadow needs light behind it or it reads as a grey smudge. */
+
+  /* cards lift on hover, so the grid reads as clickable rather than flat */
+  .project-card { transition: transform .22s ease, box-shadow .22s ease; }
+  .project-card:hover { transform: translateY(-4px); box-shadow: var(--sh-md); }
+  /* multi-video cards keep their stacked slivers and gain the same lift */
+  .project-card--multi:hover {
+    box-shadow: 0 -3px 0 rgba(169,139,239,.6), 0 -6px 0 rgba(169,139,239,.28), var(--sh-md);
+  }
+
+  /* the modal floated on the overlay with no separation at all */
+  .modal-box { box-shadow: var(--sh-lg); }
+
+  /* filled buttons only — the ghost outlines stay flat */
+  .btn { box-shadow: var(--sh-sm); transition: background .15s ease, color .15s ease, box-shadow .15s ease, transform .15s ease; }
+  .btn:hover { box-shadow: var(--sh-md); transform: translateY(-1px); }
+  .btn--ghost, .btn--ghost-light, .btn--ghost:hover, .btn--ghost-light:hover { box-shadow: none; transform: none; }
+
+  /* agency cards read as objects rather than outlines */
+  .agency-card { box-shadow: var(--sh-sm); transition: box-shadow .2s ease; }
+  .agency-card:hover { box-shadow: var(--sh-md); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .project-card, .project-card:hover, .btn, .btn:hover { transform: none; }
   }
