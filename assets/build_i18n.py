@@ -50,14 +50,25 @@ def translate_projects(block, t):
     return "\n".join(out)
 
 
-def build(lang, path):
-    t = load(path)
-    s = open("index.html", encoding="utf-8").read()
+PAGES = ["", "work", "services", "about", "agencies", "contact"]
 
-    # 1. project data
-    i = s.index("const PROJECTS = [")
-    j = s.index("\n  ];", i)
-    s = s[:i] + translate_projects(s[i:j], t) + s[j:]
+
+def build(lang, path):
+    for slug in PAGES:
+        build_page(lang, path, slug)
+
+
+def build_page(lang, path, slug):
+    t = load(path)
+    src = os.path.join(slug, "index.html") if slug else "index.html"
+    s = open(src, encoding="utf-8").read()
+    extra_depth = 1 if slug else 0
+
+    # 1. project data — only the pages that carry a grid have it
+    if "const PROJECTS = [" in s:
+        i = s.index("const PROJECTS = [")
+        j = s.index("\n  ];", i)
+        s = s[:i] + translate_projects(s[i:j], t) + s[j:]
 
     # 2. Interface copy. Replacing across the whole document corrupts markup —
     #    "project" turned class="project-grid" into class="projeto-grid" and the
@@ -117,26 +128,36 @@ def build(lang, path):
     s = s.replace('<html lang="en">', '<html lang="%s">' % {"pt": "pt-PT", "es": "es-ES"}.get(lang, lang))
 
     # 4. paths — the page now lives one directory down
-    s = re.sub(r'((?:href|src)=")(assets/)', r"\g<1>../\g<2>", s)
-    s = re.sub(r'((?:href|src)=")(blog/)', r"\g<1>../\g<2>", s)
-    s = s.replace("'assets/video/", "'../assets/video/").replace("'assets/img/", "'../assets/img/")
+    if not slug:
+        s = re.sub(r'((?:href|src)=")(assets/)', r"\g<1>../\g<2>", s)
+        s = re.sub(r'((?:href|src)=")(blog/)', r"\g<1>../\g<2>", s)
+        s = s.replace("'assets/video/", "'../assets/video/").replace("'assets/img/", "'../assets/img/")
+    else:
+        # already ../ for the English subpage; one more level inside the language
+        s = s.replace('="../assets/', '="../../assets/').replace('="../blog/', '="../../blog/')
+        s = s.replace("'../assets/", "'../../assets/")
+        s = s.replace('href="../"', 'href="../../"').replace('href="../work/', 'href="../work/')
 
-    # 5. language switcher: this language becomes current, the others link out
-    others = [x for x in ["en", "pt", "es"] if x != lang]
-    sw = ['        <a href="../">EN</a>' if lang != "en" else '        <span class="lang-current">EN</span>']
-    for code in ["pt", "es"]:
+    # 5. language switcher — must account for how deep the page sits
+    up = "../" * (1 + (1 if slug else 0))
+    tail = (slug + "/") if slug else ""
+    links = []
+    for code in ("en", "pt", "es"):
+        label = code.upper()
         if code == lang:
-            sw.append('        <span class="lang-current">%s</span>' % code.upper())
+            links.append('        <span class="lang-current">%s</span>' % label)
+        elif code == "en":
+            links.append('        <a href="%s%s">EN</a>' % (up, tail))
         else:
-            sw.append('        <a href="../%s/">%s</a>' % (code, code.upper()))
-    s = re.sub(r'\s*<span class="lang-current"[^>]*>EN</span>\n\s*<a href="\.\./?pt/?">PT</a>\n\s*<a href="\.\./?es/?">ES</a>',
-               "\n" + "\n".join(sw), s)
-    s = re.sub(r'\s*<span class="lang-current"[^>]*>EN</span>\n\s*<a href="pt/">PT</a>\n\s*<a href="es/">ES</a>',
-               "\n" + "\n".join(sw), s)
+            links.append('        <a href="%s%s/%s">%s</a>' % (up, code, tail, label))
+    s = re.sub(r'(<div class="lang-switch"[^>]*>)(.*?)(\s*</div>)',
+               lambda m: m.group(1) + "\n" + "\n".join(links) + "\n      " + m.group(3).lstrip("\n"),
+               s, count=1, flags=re.S)
 
-    os.makedirs(lang, exist_ok=True)
-    open(os.path.join(lang, "index.html"), "w", encoding="utf-8").write(s)
-    print(f"built {lang}/index.html")
+    out_dir = os.path.join(lang, slug) if slug else lang
+    os.makedirs(out_dir, exist_ok=True)
+    open(os.path.join(out_dir, "index.html"), "w", encoding="utf-8").write(s)
+    print(f"  built {out_dir}/index.html")
 
 
 if __name__ == "__main__":

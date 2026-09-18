@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Catarina Fidalgo — Contact</title>
+<meta name="description" content="Catarina Fidalgo — video editor and post-production, based in Portugal. Commercials, brand films, YouTube, social and corporate video, in English, Portuguese and Spanish.">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+
+<!-- Social share preview (Open Graph + Twitter). Set the absolute URL/image once the final domain is live. -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://catarina.media/contact/">
+<link rel="canonical" href="https://catarina.media/contact/">
+<link rel="alternate" hreflang="en" href="https://catarina.media/">
+<link rel="alternate" hreflang="pt-PT" href="https://catarina.media/pt/">
+<link rel="alternate" hreflang="es-ES" href="https://catarina.media/es/">
+<link rel="alternate" hreflang="x-default" href="https://catarina.media/">
+<meta property="og:title" content="Catarina Fidalgo — Video Editor & Post-Production">
+<meta property="og:description" content="Video editor and post-production, based in Portugal. Commercials, brand films, YouTube, social and corporate video for brands and agencies.">
+<meta property="og:image" content="https://catarina.media/assets/img/catarina-portrait.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Catarina Fidalgo — Video Editor & Post-Production">
+<meta name="twitter:description" content="Video editor and post-production, based in Portugal. Commercials, brand films, YouTube, social and corporate video for brands and agencies.">
+<meta name="twitter:image" content="https://catarina.media/assets/img/catarina-portrait.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css?v=0a0b31a3">
+</head>
+<body>
+  <div class="container">
+    <header class="site">
+      <div class="brand">Catarina <i>Fidalgo</i></div>
+      <div class="lang-switch" aria-label="Language">
+        <span class="lang-current" aria-current="true">EN</span>
+        <a href="../pt/contact/">PT</a>
+        <a href="../es/contact/">ES</a>
+      </div>
+      <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="siteNav" onclick="toggleNav(this)"><span></span><span></span><span></span></button>
+      <nav class="main" id="siteNav">
+        <a href="../">Home</a>
+        <a href="../work/">Portfolio</a>
+        <a href="../services/">Services</a>
+        <a href="../about/">About</a>
+        <a href="../agencies/">For Agencies</a>
+        <a href="../blog/">Blog</a>
+        <a href="../contact/" class="active">Contact</a>
+      </nav>
+    </header>
+  </div>  <div class="container section" id="contact">
+    <div class="eyebrow">Contact</div>
+    <h2>Let's work <i>together.</i></h2>
+    <p class="copy">Tell me a little about your project and I'll get back to you personally.</p>
+    <form class="contact-form" id="contact-form" novalidate>
+      <div class="field">
+        <label for="name">Name <span class="req">*</span></label>
+        <input type="text" id="name" name="name" autocomplete="name" required>
+      </div>
+      <div class="field">
+        <label for="email">Email <span class="req">*</span></label>
+        <input type="email" id="email" name="email" autocomplete="email" required>
+      </div>
+      <div class="field">
+        <label for="company">Company</label>
+        <input type="text" id="company" name="company" autocomplete="organization">
+      </div>
+      <div class="field">
+        <label for="video-type">Type of video</label>
+        <select id="video-type" name="video_type">
+          <option value="" selected>Select a type…</option>
+          <option>Brand Film</option>
+          <option>Corporate / Promo Video</option>
+          <option>Explainer Video</option>
+          <option>Social Media Video</option>
+          <option>YouTube Video</option>
+          <option>Testimonial Video</option>
+          <option>Event Video</option>
+          <option>Event Recap Video</option>
+          <option>Corporate Training Video</option>
+          <option>E-Learning / Video Course</option>
+          <option>TV Commercial / Ad</option>
+          <option>Highlight Reel</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="message">Message <span class="req">*</span></label>
+        <textarea id="message" name="message" placeholder="What are you looking to create?" required></textarea>
+      </div>
+      <button type="submit" class="btn">Send message</button>
+      <p class="form-note" id="form-status">This opens your email app with the details pre-filled — no data is stored on this site.</p>
+    </form>
+  </div>
+
+
+  <footer class="site">
+    <div class="container">
+      <div class="foot-brand">
+        <div class="foot-logo">Catarina <i>Fidalgo</i></div>
+        <div class="foot-tag">Made in the edit</div>
+        <div class="copy">© <span id="yr">2026</span> Catarina Fidalgo · All rights reserved</div>
+      </div>
+      <div class="foot-cta">
+        <a class="btn btn--ghost-light" href="#contact">Start a project</a>
+      </div>
+    </div>
+  </footer>
+  <div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this) closeModal()">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+      <button class="modal-nav modal-prev" onclick="showPrev(event)">&#8249;</button>
+      <button class="modal-nav modal-next" onclick="showNext(event)">&#8250;</button>
+      <div class="modal-media">
+        <video id="modalVideo" muted controls autoplay loop playsinline></video>
+        <iframe id="modalEmbed" title="Project video" allow="accelerometer; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
+        <div class="modal-media-empty" id="modalMediaEmpty"><span>Video coming soon</span></div>
+        <div class="modal-counter" id="modalCounter"></div>
+      </div>
+      <div class="modal-thumbs" id="modalThumbs"></div>
+      <div class="modal-info">
+        <div class="modal-cat" id="modalCat"></div>
+        <div class="modal-title" id="modalTitle"></div>
+        <div class="modal-media-caption" id="modalMediaCaption"></div>
+        <div class="modal-desc" id="modalDesc"></div>
+        <div class="modal-meta" id="modalTasksRow"><span class="modal-meta-label">Tasks</span><span id="modalTasks"></span></div>
+        <div class="modal-meta" id="modalIndustryRow"><span class="modal-meta-label">Industry</span><span class="modal-tags" id="modalIndustry"></span></div>
+      </div>
+    </div>
+  </div>
+  <script>
+  function toggleNav(b){var n=document.getElementById('siteNav');
+    var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o);}
+  </script>
+</body>
+</html>

@@ -147,14 +147,15 @@ PAGE = """<!DOCTYPE html>
 def header(root):
     return f"""  <div class="container">
     <header class="site">
-      <div class="brand"><a href="{root}index.html">Catarina <i>Fidalgo</i></a></div>
+      <div class="brand"><a href="{root}">Catarina <i>Fidalgo</i></a></div>
       <nav class="main" id="siteNav">
-        <a href="{root}index.html">Home</a>
-        <a href="{root}index.html#portfolio">Portfolio</a>
-        <a href="{root}index.html#about">About</a>
-        <a href="{root}index.html#for-agencies">For Agencies</a>
+        <a href="{root}">Home</a>
+        <a href="{root}work/">Portfolio</a>
+        <a href="{root}services/">Services</a>
+        <a href="{root}about/">About</a>
+        <a href="{root}agencies/">For Agencies</a>
         <a href="{root}blog/" class="active">Blog</a>
-        <a href="{root}index.html#contact">Contact</a>
+        <a href="{root}contact/">Contact</a>
       </nav>
     </header>
   </div>"""

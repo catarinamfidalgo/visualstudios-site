@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Catarina Fidalgo — Editora de Vídeo e Pós-Produção</title>
+<meta name="description" content="Catarina Fidalgo — editora de vídeo e pós-produção, em Portugal. Anúncios, filmes de marca, YouTube, conteúdo social e vídeo corporativo, em inglês, português e espanhol.">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+
+<!-- Social share preview (Open Graph + Twitter). Set the absolute URL/image once the final domain is live. -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://catarina.media/about/">
+<link rel="canonical" href="https://catarina.media/about/">
+<link rel="alternate" hreflang="en" href="https://catarina.media/">
+<link rel="alternate" hreflang="pt-PT" href="https://catarina.media/pt/">
+<link rel="alternate" hreflang="es-ES" href="https://catarina.media/es/">
+<link rel="alternate" hreflang="x-default" href="https://catarina.media/">
+<meta property="og:title" content="Catarina Fidalgo — Video Editor & Post-Production">
+<meta property="og:description" content="Catarina Fidalgo — editora de vídeo e pós-produção, em Portugal. Anúncios, filmes de marca, YouTube, conteúdo social e vídeo corporativo, em inglês, português e espanhol.">
+<meta property="og:image" content="https://catarina.media/assets/img/catarina-portrait.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Catarina Fidalgo — Video Editor & Post-Production">
+<meta name="twitter:description" content="Video editor and post-production, based in Portugal. Commercials, brand films, YouTube, social and corporate video for brands and agencies.">
+<meta name="twitter:image" content="https://catarina.media/assets/img/catarina-portrait.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/site.css?v=0a0b31a3">
+</head>
+<body>
+  <div class="container">
+    <header class="site">
+      <div class="brand">Catarina <i>Fidalgo</i></div>
+      <div class="lang-switch" aria-label="Language">
+        <a href="../../about/">EN</a>
+        <span class="lang-current">PT</span>
+        <a href="../../es/about/">ES</a>
+            </div>
+      <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="siteNav" onclick="toggleNav(this)"><span></span><span></span><span></span></button>
+      <nav class="main" id="siteNav">
+        <a href="../../">Início</a>
+        <a href="../work/">Portfólio</a>
+        <a href="../services/">Serviços</a>
+        <a href="../about/" class="active">Sobre</a>
+        <a href="../agencies/">Para Agências</a>
+        <a href="../../blog/">Blog</a>
+        <a href="../contact/">Contacto</a>
+      </nav>
+    </header>
+  </div>  <div class="container section" id="about">
+    <div class="about-wrap">
+      <div class="about-photo"><img src="../../assets/img/catarina-portrait.jpg" alt="Catarina Fidalgo"></div>
+      <div class="about-text">
+        <h2 class="eyebrow">Sobre</h2>
+        <p class="copy">Sou editora de vídeo, em Portugal. Há cerca de dez anos que trabalho com marcas, agências e equipas criativas em todo o mundo.</p>
+        <p class="copy">A maior parte do que faço são anúncios, filmes de marca, YouTube, conteúdo para redes sociais e vídeo corporativo. O que me importa mais é a história por baixo das imagens, porque é normalmente isso que decide se uma montagem resulta.</p>
+        <p class="copy">Trabalho em inglês, português e espanhol, o que ajuda quando uma marca faz a mesma peça para mais do que um mercado.</p>
+      </div>
+    </div>
+  </div>
+  <footer class="site">
+    <div class="container">
+      <div class="foot-brand">
+        <div class="foot-logo">Catarina <i>Fidalgo</i></div>
+        <div class="foot-tag">Made in the edit</div>
+        <div class="copy">© <span id="yr">2026</span> Catarina Fidalgo · Todos os direitos reservados</div>
+      </div>
+      <div class="foot-cta">
+        <a class="btn btn--ghost-light" href="#contact">Começar um projeto</a>
+      </div>
+    </div>
+  </footer>
+  <div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this) closeModal()">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+      <button class="modal-nav modal-prev" onclick="showPrev(event)">&#8249;</button>
+      <button class="modal-nav modal-next" onclick="showNext(event)">&#8250;</button>
+      <div class="modal-media">
+        <video id="modalVideo" muted controls autoplay loop playsinline></video>
+        <iframe id="modalEmbed" title="Project video" allow="accelerometer; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
+        <div class="modal-media-empty" id="modalMediaEmpty"><span>Vídeo em breve</span></div>
+        <div class="modal-counter" id="modalCounter"></div>
+      </div>
+      <div class="modal-thumbs" id="modalThumbs"></div>
+      <div class="modal-info">
+        <div class="modal-cat" id="modalCat"></div>
+        <div class="modal-title" id="modalTitle"></div>
+        <div class="modal-media-caption" id="modalMediaCaption"></div>
+        <div class="modal-desc" id="modalDesc"></div>
+        <div class="modal-meta" id="modalTasksRow"><span class="modal-meta-label">Tarefas</span><span id="modalTasks"></span></div>
+        <div class="modal-meta" id="modalIndustryRow"><span class="modal-meta-label">Setor</span><span class="modal-tags" id="modalIndustry"></span></div>
+      </div>
+    </div>
+  </div>
+  <script>
+  function toggleNav(b){var n=document.getElementById('siteNav');
+    var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o);}
+  </script>
+</body>
+</html>

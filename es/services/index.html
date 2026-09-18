@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+<head><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Catarina Fidalgo — Montadora de Vídeo y Posproducción</title>
+<meta name="description" content="Catarina Fidalgo — montadora de vídeo y posproducción, afincada en Portugal. Anuncios, películas de marca, YouTube, contenido social y vídeo corporativo, en inglés, portugués y español.">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+
+<!-- Social share preview (Open Graph + Twitter). Set the absolute URL/image once the final domain is live. -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://catarina.media/services/">
+<link rel="canonical" href="https://catarina.media/services/">
+<link rel="alternate" hreflang="en" href="https://catarina.media/">
+<link rel="alternate" hreflang="pt-PT" href="https://catarina.media/pt/">
+<link rel="alternate" hreflang="es-ES" href="https://catarina.media/es/">
+<link rel="alternate" hreflang="x-default" href="https://catarina.media/">
+<meta property="og:title" content="Catarina Fidalgo — Video Editor & Post-Production">
+<meta property="og:description" content="Catarina Fidalgo — montadora de vídeo y posproducción, afincada en Portugal. Anuncios, películas de marca, YouTube, contenido social y vídeo corporativo, en inglés, portugués y español.">
+<meta property="og:image" content="https://catarina.media/assets/img/catarina-portrait.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Catarina Fidalgo — Video Editor & Post-Production">
+<meta name="twitter:description" content="Video editor and post-production, based in Portugal. Commercials, brand films, YouTube, social and corporate video for brands and agencies.">
+<meta name="twitter:image" content="https://catarina.media/assets/img/catarina-portrait.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/site.css?v=0a0b31a3">
+</head>
+<body>
+  <div class="container">
+    <header class="site">
+      <div class="brand">Catarina <i>Fidalgo</i></div>
+      <div class="lang-switch" aria-label="Language">
+        <a href="../../services/">EN</a>
+        <a href="../../pt/services/">PT</a>
+        <span class="lang-current">ES</span>
+            </div>
+      <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="siteNav" onclick="toggleNav(this)"><span></span><span></span><span></span></button>
+      <nav class="main" id="siteNav">
+        <a href="../../">Inicio</a>
+        <a href="../work/">Portafolio</a>
+        <a href="../services/" class="active">Servicios</a>
+        <a href="../about/">Sobre mí</a>
+        <a href="../agencies/">Para Agencias</a>
+        <a href="../../blog/">Blog</a>
+        <a href="../contact/">Contacto</a>
+      </nav>
+    </header>
+  </div>  <div class="container services section">
+    <h2 class="eyebrow">Servicios</h2>
+    <div class="service-list">
+      <div class="service-item">
+        <h3>Montaje de Vídeo</h3>
+        <p>Construyo la historia a partir del material bruto y encuentro el ritmo que la sostiene.</p>
+      </div>
+      <div class="service-item">
+        <h3>Etalonaje</h3>
+        <p>Etalono cada plano para que la pieza parezca una sola película y encaje con tu marca.</p>
+      </div>
+      <div class="service-item">
+        <h3>Motion Graphics y Animación</h3>
+        <p>Rótulos, faldones, animación de logotipo y trabajo 2D ligero cuando la escena lo pide.</p>
+      </div>
+      <div class="service-item">
+        <h3>Diseño de Sonido y Mezcla</h3>
+        <p>Limpiar diálogos, equilibrar la música y mezclar para televisión y streaming.</p>
+      </div>
+      <div class="service-item">
+        <h3>Subtitulado y Localización</h3>
+        <p>Subtítulos y versiones completas en inglés, portugués y español.</p>
+      </div>
+      <div class="service-item">
+        <h3>Música e Imágenes con Licencia</h3>
+        <p>Buscar y licenciar la música y las imágenes adecuadas, ya liberadas para publicar.</p>
+      </div>
+    </div>
+  </div>
+  <footer class="site">
+    <div class="container">
+      <div class="foot-brand">
+        <div class="foot-logo">Catarina <i>Fidalgo</i></div>
+        <div class="foot-tag">Made in the edit</div>
+        <div class="copy">© <span id="yr">2026</span> Catarina Fidalgo · Todos los derechos reservados</div>
+      </div>
+      <div class="foot-cta">
+        <a class="btn btn--ghost-light" href="#contact">Empezar un proyecto</a>
+      </div>
+    </div>
+  </footer>
+  <div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this) closeModal()">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+      <button class="modal-nav modal-prev" onclick="showPrev(event)">&#8249;</button>
+      <button class="modal-nav modal-next" onclick="showNext(event)">&#8250;</button>
+      <div class="modal-media">
+        <video id="modalVideo" muted controls autoplay loop playsinline></video>
+        <iframe id="modalEmbed" title="Project video" allow="accelerometer; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
+        <div class="modal-media-empty" id="modalMediaEmpty"><span>Vídeo próximamente</span></div>
+        <div class="modal-counter" id="modalCounter"></div>
+      </div>
+      <div class="modal-thumbs" id="modalThumbs"></div>
+      <div class="modal-info">
+        <div class="modal-cat" id="modalCat"></div>
+        <div class="modal-title" id="modalTitle"></div>
+        <div class="modal-media-caption" id="modalMediaCaption"></div>
+        <div class="modal-desc" id="modalDesc"></div>
+        <div class="modal-meta" id="modalTasksRow"><span class="modal-meta-label">Tareas</span><span id="modalTasks"></span></div>
+        <div class="modal-meta" id="modalIndustryRow"><span class="modal-meta-label">Sector</span><span class="modal-tags" id="modalIndustry"></span></div>
+      </div>
+    </div>
+  </div>
+  <script>
+  function toggleNav(b){var n=document.getElementById('siteNav');
+    var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o);}
+  </script>
+</body>
+</html>
