@@ -102,8 +102,17 @@ def build():
                                                f["header"].index("</nav>")],
                                    '      <nav class="main" id="siteNav">\n' + nav_for(slug, depth) + "\n      ")
         body += "\n".join(chunks) + "\n" + f["footer"] + f["modal"]
-        body += f["script"] if needs_js else "  <script>\n  function toggleNav(b){var n=document.getElementById('siteNav');\n" \
-                                             "    var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o);}\n  </script>\n"
+        if needs_js:
+            body += f["script"]
+        else:
+            body += ("  <script>\n"
+                     "  function toggleNav(b){var n=document.getElementById('siteNav');\n"
+                     "    var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o);}\n"
+                     "  function closeNav(){var n=document.getElementById('siteNav'),b=document.querySelector('.nav-toggle');\n"
+                     "    if(n)n.classList.remove('open'); if(b)b.setAttribute('aria-expanded','false');}\n"
+                     "  document.addEventListener('click',function(e){if(!e.target.closest('header.site'))closeNav();});\n"
+                     "  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeNav();});\n"
+                     "  </script>\n")
 
         page = "<!DOCTYPE html>\n<html lang=\"en\">\n<head>" + head + "</head>\n<body>\n" + body + "</body>\n</html>\n"
         page = depth_fix(page, depth, slug)

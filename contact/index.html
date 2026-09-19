@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/site.css?v=1ede8e86">
+<link rel="stylesheet" href="../assets/site.css?v=a71d82c3">
 </head>
 <body>
   <div class="lang-bar">
@@ -136,6 +136,10 @@
   <script>
   function toggleNav(b){var n=document.getElementById('siteNav');
     var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o);}
+  function closeNav(){var n=document.getElementById('siteNav'),b=document.querySelector('.nav-toggle');
+    if(n)n.classList.remove('open'); if(b)b.setAttribute('aria-expanded','false');}
+  document.addEventListener('click',function(e){if(!e.target.closest('header.site'))closeNav();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeNav();});
   </script>
 </body>
 </html>

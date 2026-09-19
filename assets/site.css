@@ -16,15 +16,26 @@
   header.site { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; padding: 30px 0 24px; }
   .brand { font-weight: 800; font-size: 1.25rem; letter-spacing: .01em; text-transform: uppercase; font-family: 'Hanken Grotesk', sans-serif; }
   .brand i { font-style: normal; color: var(--accent); }
-  nav.main { display: flex; flex-direction: column; align-items: flex-end; gap: 7px; line-height: 1.5; font-size: .72rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
-  nav.main a { transition: color .15s ease; color: var(--muted); }
+  header.site { position: relative; align-items: center; }
+  /* The pages live behind the button rather than all on show. The panel is
+     taken out of flow so opening it does not push the page around. */
+  nav.main { position: absolute; top: calc(100% + 6px); right: 0; z-index: 60;
+    display: flex; flex-direction: column; align-items: stretch; gap: 0;
+    min-width: 230px; padding: 6px 0; line-height: 1.5;
+    font-size: .72rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
+    background: var(--bg); border: 1px solid var(--line); border-radius: 2px; box-shadow: var(--sh-md);
+    opacity: 0; visibility: hidden; transform: translateY(-6px);
+    transition: opacity .16s ease, transform .16s ease, visibility .16s; }
+  nav.main.open { opacity: 1; visibility: visible; transform: translateY(0); }
+  nav.main a { transition: color .15s ease, background .15s ease; color: var(--muted); padding: 11px 18px; text-align: right; }
   nav.main a:hover, nav.main a.active { color: var(--accent); }
+  nav.main a:hover { background: var(--lav); }
   .btn { display: inline-block; padding: .95em 1.7em; border-radius: 999px; font-weight: 700; font-size: .78rem; text-transform: uppercase; letter-spacing: .12em; background: var(--accent); color: var(--onaccent); border: 1px solid var(--accent); transition: background .15s ease, color .15s ease; }
   .btn:hover { background: var(--text); border-color: var(--text); }
   .btn--ghost { background: transparent; color: var(--accent); }
   .btn--ghost:hover { background: transparent; color: var(--text); }
   .btn-row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
-  .nav-toggle { display: none; margin-left: auto; flex-direction: column; justify-content: center; gap: 5px; width: 40px; height: 40px; background: none; border: none; cursor: pointer; padding: 8px; }
+  .nav-toggle { display: flex; margin-left: auto; flex-direction: column; justify-content: center; gap: 5px; width: 40px; height: 40px; background: none; border: none; cursor: pointer; padding: 8px; }
   .nav-toggle span { display: block; height: 2px; width: 100%; background: var(--text); border-radius: 2px; transition: transform .2s ease, opacity .2s ease; }
   .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
@@ -185,10 +196,8 @@
 
   @media (max-width: 720px) {
     header.site { flex-wrap: wrap; }
-    .nav-toggle { display: flex; }
-      nav.main { order: 3; flex-basis: 100%; flex-direction: column; gap: 4px; margin: 0; max-height: 0; overflow: hidden; transition: max-height .25s ease; }
-    nav.main.open { max-height: 320px; margin-top: 14px; }
-    nav.main a { padding: 10px 2px; border-bottom: 1px solid var(--line); font-size: .95rem; }
+    nav.main { right: 0; min-width: 210px; }
+    nav.main a { font-size: .8rem; padding: 12px 16px; }
   }
 
   .filter-bar { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 4px; }
@@ -237,7 +246,6 @@
   /* Touch devices: tap targets need real size, and hover styles never fire */
   @media (hover: none) {
     .filter-chip { padding: .72em 1.05em; font-size: .72rem; }
-    nav.main a { padding: 12px 2px; }
     .btn { padding: 1em 1.6em; }
   }
 
@@ -350,7 +358,7 @@
      text stops short of the margin — by a different amount in the nav than in
      the language bar. Pulling each back by its own tracking makes the last
      glyph of both sit on exactly the same line. */
-  nav.main a { margin-right: -.18em; }
+
   .lang-switch { margin-right: -.14em; }
 
   /* The agency cards were locked to three columns at every width, so on a
